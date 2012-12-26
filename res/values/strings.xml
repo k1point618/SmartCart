@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SmartCart</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_end_session">End Session</string>
+    <string name="menu_restart">Restart</string>
+    
+    
+    <!-- Buttons: left panel -->
+	<string name="left_panel">This is the Left Panel</string>
+    <string name="add_item_button">Add Item</string>
+	<string name="find_item_button">Find Item</string>
+	<string name="my_cart_button">My Cart</string>
+	<string name="coupon_button">Coupon</string>
+	<string name="checkout_button">Checkout</string>
+	
+	<!-- MyChart Main/Middle Panel -->
+	<string name="main_panel">This is the Middle/Main Panel</string>
+    <string name="itemized_text_view">Itemized Receipt: </string>
+	
+	<!-- Recommendation Panel -->
+	<string name="right_panel">This is the right panel</string>
+    <string name="recommendation_text">Recommendations for You</string>
+	
+    <!-- Add Item Dialog -->
+	<string name="add_item_dialog_barcode_label">Barcode: </string>
+	<string name="barcode_hint">12-digit Barcode</string>
+	<string name="add_item_dialog_add">Add</string>
+	<string name="add_item_dialog_cancel">Cancel</string>
+	
+	<!-- New Item Dialog (New Item to be added to Database)-->
+	<string name="new_item_dialog_database">Add to Database</string>
+	<string name="new_item_dialog_database_cart">Add to Database and Cart</string>
+	<string name="new_item_dialog_cancel">Cancel</string>
+	<string name="new_item_name_label">Product Name: </string>
+	<string name="new_item_name_hint">Product Name + Brand</string>
+	<string name="new_item_barcode_label">Barcode: </string>
+	<string name="new_item_barcode_hint">Full Barcode (Required)</string>
+	<string name="new_item_listed_price_label">Price: </string>
+	<string name="new_item_listed_price_hint"></string>
+	<string name="new_item_sale_price_label">Sale Price? </string>
+	<string name="new_item_sale_price_hint">Optional</string>
+	<string name="new_item_location_label">Location: </string>
+	<string name="new_item_location_hint">Shelf Number</string>
+	<string name="new_item_image_label">Product Image: </string>
+	<string name="new_item_image_hint">Optional</string>
+	<string name="new_item_description_label">Description: </string>
+	<string name="new_item_description_hint">Enter any keyword related to the product</string>
+	
+	<!-- Find Item Activity Window -->
+	<string name="find_label">What do you wish to find today? </string>
+	<string name="find_hint">Enter product name, category, or brand to search</string>
+	<string name="find_button">Find</string>
+	<string name="map_main">Store Map</string>
+	
+	<!-- Colors and Such -->		
+    <drawable name="red">#7f00</drawable>
+    <drawable name="blue">#770000ff</drawable>
+    <drawable name="green">#7700ff00</drawable>
+	<drawable name="yellow">#77ffff00</drawable>
+	
+	<drawable name="screen_background_black">#ff000000</drawable>
+    <drawable name="translucent_background">#e0000000</drawable>
+    <drawable name="transparent_background">#00000000</drawable>
+
+    <color name="solid_red">#f00</color>
+    <color name="solid_blue">#0000ff</color>
+    <color name="solid_green">#f0f0</color>
+    <color name="solid_yellow">#ffffff00</color>
+</resources>

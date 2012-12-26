@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--     Demonstrates a horizontal linear layout with equally sized columns -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:baselineAligned="false">
+
+    
+    <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+			android:orientation="vertical" 
+			android:background="@drawable/blue">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+            	android:text="@string/add_item_button" 
+            	android:textSize="30sp"
+            	/>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+            	android:text="@string/find_item_button" 
+            	android:textSize="30sp"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+            	android:text="@string/my_cart_button" 
+            	android:textSize="30sp"/>
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+            	android:text="@string/coupon_button" 
+            	android:textSize="30sp"/>
+            
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+            	android:text="@string/checkout_button" 
+            	android:textSize="30sp"/>
+
+        </LinearLayout>
+    
+    <!-- Middle/Main Panel -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical" 
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        >
+        
+        <TextView
+            android:id="@+id/totalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_panel"
+            android:textSize="40sp" 
+            />
+
+        <ScrollView
+            android:id="@+id/itemizedScrollView"
+            android:layout_width="fill_parent"
+		    android:layout_height="fill_parent" 
+			android:layout_marginTop="20dip"
+			android:transcriptMode="alwaysScroll">
+			
+            <LinearLayout
+            	android:id="@+id/itemizedVerticalLayout"
+		        android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" 
+                >
+            </LinearLayout>
+            
+		</ScrollView>
+        
+    </LinearLayout>
+    
+    <!-- RIGHT PANEL: Recommendation -->
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" 
+            android:background="@drawable/green">
+    
+    	<TextView
+		android:id="@+id/RecommendationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/recommendation_text" 
+        />
+
+    	<ScrollView
+         android:layout_width="match_parent" 
+         android:layout_height="fill_parent" 
+         android:fadingEdge="none" 
+         android:id="@+id/recommendationScrollview" 
+         android:scrollbars="none">
+        
+                <LinearLayout 
+                    android:id="@+id/recommendationVeticalLayout" 
+                    android:layout_width="match_parent" 
+                    android:layout_height="wrap_content" 
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">  
+                    
+                </LinearLayout>
+    </ScrollView>
+        
+    </LinearLayout>
+        
+
+</LinearLayout>

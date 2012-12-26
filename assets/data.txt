@@ -1,0 +1,11 @@
+6954767410388	Chinese Coke	2.50	2.50	001	Coca cola Soda
+037466080259	Lint Chocolate 35Box	5.99	5.99	101	Chocolate Lindt Dark Swiss
+12345678	Chocolate	15.99	15.99	201	Chocolate Lindt Dark Swiss
+0020284573323	Nantucket Orange	4.99	3.99	301	Orange Fruit
+2023092882	WonderBreadLoaf	2.75	2.75	401	Electronics Phone Keren
+04200062000	iPhone5 White	199.00	199.00	501	Electronics phone Apple
+000000	MOLESKINE Notebook	21.50	21.50	601	Notebook Moleskine Work Supply Office
+111111	STAEDTLER triplus fineliner 10-set	8.85	8.85	701	Office School Supply Pen Color
+222222	Christmas Cup	3.55	3.55	801	Cup Kitchen
+333333	RedCups 100-set	10.00	10.00	901	Cups Party Disposable
+444444	Unknow	0.00	0.00	000	Mystery
