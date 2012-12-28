@@ -23,6 +23,9 @@
 	<string name="right_panel">This is the right panel</string>
     <string name="recommendation_text">Recommendations for You</string>
 	
+    <!-- Find Result Panel -->
+    <string name="find_result_text">Search Result(s): </string>
+	
     <!-- Add Item Dialog -->
 	<string name="add_item_dialog_barcode_label">Barcode: </string>
 	<string name="barcode_hint">12-digit Barcode</string>

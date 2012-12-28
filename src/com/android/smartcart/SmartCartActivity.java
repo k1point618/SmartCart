@@ -1,22 +1,30 @@
 package com.android.smartcart;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.database.InventoryDbHelper;
+import com.android.model.Item;
 import com.android.model.SmartCartModel;
 
 public class SmartCartActivity extends Activity implements View.OnClickListener{
 
 	//UI Elements
 		//Buttons
-	private Button mAddItemButton;
+	protected Button mAddItemButton;
     private Button mFindItemButton;
     private Button mMyCartButton;
     private Button mCouponButton;
@@ -33,7 +41,8 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	private static final int NEW_ITEM_DIALOG = 2;					//Dialog
     private final String TAG = "SmartCartActivity";
     private static final String RAW_DATA_FILENAME = "data.txt";		//Database
-    
+    public static final String DEFAULT_IMAGE = "m";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -70,7 +79,6 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 
 	@Override
 	public void onClick(View view) {
-		// TODO Auto-generated method stub
 		int id = view.getId();
 		
 		/**
@@ -162,5 +170,44 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 		return;
 	}
 	
-
+	/**
+	 * Given a list of items and a Vertical Linear Layout:
+	 * Load the list of items to the layout with Item Image as Button, Item description,
+	 * and Item price. 
+	 * @param items
+	 * @param mVerticalLayout
+	 */
+	protected void loadItemsToVerticalLayout(ArrayList<Item> items, LinearLayout mVerticalLayout){
+		
+		for(Item item: items){
+			LinearLayout rec = new LinearLayout(this);
+			rec.setOrientation(LinearLayout.HORIZONTAL);
+			
+			String imageFileName = "m" + item.getBarcode();
+			ImageButton imageButton = new ImageButton(this);
+			
+			int imageResourceId = 0;
+			Drawable image;
+			try{
+				imageResourceId = this.getResources().getIdentifier(imageFileName, "drawable", getPackageName());
+				image = this.getResources().getDrawable(imageResourceId);
+			}catch(Exception e){
+				imageResourceId = this.getResources().getIdentifier(DEFAULT_IMAGE, "drawable", getPackageName());
+				image = this.getResources().getDrawable(imageResourceId);
+			}
+			imageButton.setImageDrawable(image);
+			imageButton.setOnClickListener(new OnClickListener(){
+				@Override 
+				public void onClick(View arg0){
+					startFindItemActivity();
+				}
+			});
+			rec.addView(imageButton);
+			
+			TextView label = new TextView(this);
+			label.setText(item.getName() + "\n$" + item.getSalePriceText());
+			rec.addView(label);
+			mVerticalLayout.addView(rec);
+		}
+	}
 }

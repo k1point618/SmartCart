@@ -93,6 +93,5 @@ public class SmartCartModel {
 	public String getTaxText(){
 		return String.format("%.2f", getTax());
 	}
-
 	
 }

@@ -13,20 +13,18 @@ public class Item {
 	private double originalPrice;
 	private int location;
 	private String barcode;
-	private String imageFileName;
 	
 	//Other Attributes no in-use so far. 
 	private double weight;
 	private int count;
 	
-	public Item(String n, String d, double sp, double op, int l, String b, String ifn){
+	public Item(String n, String d, double sp, double op, int l, String b){
 		this.name = n;
 		this.description = d;
 		this.salePrice = sp;
 		this.originalPrice = op;
 		this.location = l;
 		this.barcode = b;
-		this.imageFileName = ifn;
 	}
 	
 	/**
@@ -77,14 +75,6 @@ public class Item {
 		this.originalPrice = originalPrice;
 	}
 
-	public String getImageFileName() {
-		return imageFileName;
-	}
-
-	public void setImageFileName(String imageFileName) {
-		this.imageFileName = imageFileName;
-	}
-
 	public int getCount() {
 		return count;
 	}
@@ -129,7 +119,7 @@ public class Item {
 		return "Item [name=" + name + ", description=" + description
 				+ ", salePrice=" + salePrice + ", originalPrice="
 				+ originalPrice + ", location=" + location + ", barcode="
-				+ barcode + ", imageFileName=" + imageFileName + ", weight="
+				+ barcode  + ", weight="
 				+ weight + ", count=" + count + "]";
 	}
 

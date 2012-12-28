@@ -192,7 +192,7 @@ public class AddItemActivity extends SmartCartActivity{
 		Item item = new Item(iName, mDescriptionEditText.getText().toString(), 
 				Double.valueOf(iSPrice), Double.valueOf(iOPrice), 
 				Integer.valueOf(iLocation),
-				iBarcode, mImageEditText.getText().toString());
+				iBarcode);
 		
 		//Add to database
 		InventoryDbHelper.addItem(this, mDbHelper.getWritableDatabase(), item);
@@ -268,7 +268,7 @@ public class AddItemActivity extends SmartCartActivity{
 		}
 		
 		//Create Item and Add Item to cart
-		Item item = new Item(name, null, sale_price, original_price, 0, barcode, image_location);
+		Item item = new Item(name, null, sale_price, original_price, 0, barcode);
 		model.addItem(item);
 		
 		mBarcodeEditText.setText("");

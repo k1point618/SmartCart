@@ -104,7 +104,7 @@
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/find_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -124,13 +124,37 @@
         
     </LinearLayout>
     
-   <!-- RIGHT PANEL: Recommendation -->
+   <!-- RIGHT PANEL: Results -->
     <LinearLayout
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:layout_weight="0.8"
+            android:layout_weight="1"
             android:orientation="vertical" 
             >
+        
+        <TextView
+		android:id="@+id/FindResultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/find_result_text" 
+        />
+
+    	<ScrollView
+         android:id="@+id/findResultScrollView" 
+         android:layout_width="match_parent" 
+         android:layout_height="fill_parent" 
+         android:fadingEdge="none" >
+        
+                <LinearLayout 
+                    android:id="@+id/findResultVerticalLayout" 
+                    android:layout_width="match_parent" 
+                    android:layout_height="wrap_content" 
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">  
+                    
+                </LinearLayout>
+    </ScrollView>
     	        
     </LinearLayout>
         

@@ -4,12 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import com.android.model.Item;
+import com.android.smartcart.SmartCartActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -117,4 +120,86 @@ public class InventoryDbHelper extends SQLiteOpenHelper{
 		values.put(InventoryReaderContract.InventoryEntry.COLUMN_NAME_DESCRIPTION, item.getDescription());
 		db.insert(InventoryReaderContract.InventoryEntry.TABLE_NAME, null, values);
 	}
+	
+	/**
+	 * Given a list of keywords, return a list of items that has any of the keywords, in 
+	 * its name or description
+	 * @param keywords
+	 * @return
+	 */
+	public ArrayList<Item> findOnShelf(String[] keywords){
+		ArrayList<Item> matches = new ArrayList<Item>();
+	
+		if(keywords.length == 0){
+			return matches;
+		}
+		
+		//Query the Database
+		SQLiteDatabase db = this.getWritableDatabase();
+//		String[] projection = {
+//				InventoryReaderContract.InventoryEntry._ID,
+//				InventoryReaderContract.InventoryEntry.COLUMN_NAME_BARCODE,
+//				InventoryReaderContract.InventoryEntry.COLUMN_NAME_NAME,
+//				InventoryReaderContract.InventoryEntry.COLUMN_NAME_SALE_PRICE,
+//				InventoryReaderContract.InventoryEntry.COLUMN_NAME_DESCRIPTION
+//		};
+//		String sortOrder = InventoryReaderContract.InventoryEntry.COLUMN_NAME_BARCODE;
+//		Cursor c = db.query(InventoryReaderContract.InventoryEntry.TABLE_NAME, 
+//				projection, 
+//				null, 
+//				null, null, null, sortOrder);
+		
+		//Get Result
+		String barcode = "";
+		String name = "";
+		Double sale_price = -1.0;
+		Double original_price = -1.0;
+		String description = "";
+		int location = 0;
+		
+		//TODO: Temporary until figure out how DB works
+		Cursor c = db.rawQuery("select * from inventory", null);
+		c.moveToFirst();
+		
+		do{
+			name = c.getString(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_NAME));
+			description = c.getString(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_DESCRIPTION));
+			
+			//Search for keywords in name and Description
+			if (match(keywords, name) || match(keywords, description)){
+				barcode = c.getString(c.getColumnIndex(
+						InventoryReaderContract.InventoryEntry.COLUMN_NAME_BARCODE));
+				sale_price = c.getDouble(c.getColumnIndex(
+						InventoryReaderContract.InventoryEntry.COLUMN_NAME_SALE_PRICE));
+				original_price = c.getDouble(c.getColumnIndex(
+						InventoryReaderContract.InventoryEntry.COLUMN_NAME_ORIGINAL_PRICE));
+				location = c.getInt(c.getColumnIndex(
+						InventoryReaderContract.InventoryEntry.COLUMN_NAME_LOCATION));
+				Item i = new Item(name, description, sale_price, original_price, location, barcode);
+				matches.add(i);
+			}
+		}while(c.moveToNext());
+		return matches;
+	}
+
+	/**
+	 * Returns true if the text contains any of the keywrods. 
+	 * @param keywords
+	 * @param text
+	 * @return
+	 */
+	private boolean match(String[] keywords, String text) {
+		String[] textWords = text.split(" ");
+		for(String k: keywords){
+			for(String t: textWords){
+				if(k.toLowerCase().equals(t.toLowerCase())){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 }

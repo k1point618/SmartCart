@@ -25,7 +25,6 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 	 * Attributes
 	 */
 	private static final String TAG = "MyCartActivity"; //TAG for Log purposes
-	public static final String DEFAULT_IMAGE = "m";
 	
 	//CenterPiece
 	private TextView mTotalTextView;
@@ -56,7 +55,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 		mRecommendationScrollView = (ScrollView) findViewById(R.id.recommendationScrollview);
 				
 		//Tests
-		Item i = new Item("Chocolate", null, 4, 4, 0, "1234", null);
+		Item i = new Item("Chocolate", null, 4, 4, 0, "1234");
 		model.addRecommendation(i);
 		
 		setItemizeView();
@@ -107,41 +106,8 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 	 * and after every add.
 	 */
 	private void loadRecommendations() {
-		
-		
-		for(Item item: SmartCartActivity.model.getRecommendations()){
-			LinearLayout rec = new LinearLayout(this);
-			rec.setOrientation(LinearLayout.HORIZONTAL);
-			
-			String imageFileName = "m" + item.getBarcode();
-			ImageButton imageButton = new ImageButton(this);
-			
-			int imageResourceId = 0;
-			Drawable image;
-			try{
-				imageResourceId = this.getResources().getIdentifier(imageFileName, "drawable", getPackageName());
-				image = this.getResources().getDrawable(imageResourceId);
-			}catch(Exception e){
-				imageResourceId = this.getResources().getIdentifier(DEFAULT_IMAGE, "drawable", getPackageName());
-				image = this.getResources().getDrawable(imageResourceId);
-			}
-			imageButton.setImageDrawable(image);
-			imageButton.setOnClickListener(new OnClickListener(){
-				@Override 
-				public void onClick(View arg0){
-					startFindItemActivity();
-				}
-			});
-			rec.addView(imageButton);
-			
-			TextView label = new TextView(this);
-			label.setText(item.getName() + "\n$" + item.getSalePriceText());
-			rec.addView(label);
-			mRecommendationVerticalLayout.addView(rec);
-		}
-		
-		
-		
+	
+		loadItemsToVerticalLayout(SmartCartActivity.model.getRecommendations(), mRecommendationVerticalLayout);
 	}
 
 	
