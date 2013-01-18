@@ -31,6 +31,10 @@
     <!-- Coupon Page -->
     <string name="coupon_title">Coupons Available for Today</string>
 	
+    <!-- Checkout Page -->
+    <string name="swipe_instruction">Swipe your card.</string>
+	<string name="checkout_instruction">When you are ready, please swipe your card above.</string>
+	
     <!-- Add Item Dialog -->
 	<string name="add_item_dialog_barcode_label">Barcode: </string>
 	<string name="barcode_hint">12-digit Barcode</string>

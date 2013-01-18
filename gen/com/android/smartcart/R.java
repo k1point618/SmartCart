@@ -67,48 +67,51 @@ public final class R {
         public static final int yellow=0x7f020018;
     }
     public static final class id {
-        public static final int CouponScrollView=0x7f090008;
-        public static final int CouponVerticalLayout=0x7f090009;
-        public static final int FindResultTextView=0x7f09000e;
-        public static final int RecommendationTextView=0x7f090013;
-        public static final int RecommendationTextView2=0x7f090014;
-        public static final int WelcomeButton=0x7f090017;
-        public static final int barcode_edit_text=0x7f090019;
-        public static final int barcode_label=0x7f090018;
+        public static final int CouponScrollView=0x7f09000b;
+        public static final int CouponVerticalLayout=0x7f09000c;
+        public static final int FindResultTextView=0x7f090011;
+        public static final int RecommendationTextView=0x7f090016;
+        public static final int RecommendationTextView2=0x7f090017;
+        public static final int WelcomeButton=0x7f09001a;
+        public static final int barcode_edit_text=0x7f09001c;
+        public static final int barcode_label=0x7f09001b;
         public static final int button1=0x7f090000;
         public static final int button2=0x7f090001;
         public static final int button3=0x7f090002;
         public static final int button4=0x7f090003;
-        public static final int button5=0x7f090004;
+        public static final int button5=0x7f09000a;
+        public static final int checkoutBackButton=0x7f090004;
+        public static final int checkoutInstruction=0x7f090008;
         public static final int checkoutVerticalLayout=0x7f090005;
-        public static final int findLabelTextView=0x7f09000a;
-        public static final int findResultScrollView=0x7f09000f;
-        public static final int findResultVerticalLayout=0x7f090010;
-        public static final int find_button=0x7f09000c;
-        public static final int find_edit_text=0x7f09000b;
-        public static final int imageView1=0x7f09000d;
-        public static final int itemizedScrollView=0x7f090011;
-        public static final int itemizedVerticalLayout=0x7f090012;
-        public static final int menu_end_session=0x7f090028;
-        public static final int menu_restart=0x7f090029;
-        public static final int new_item_barcode_edit_text=0x7f09001d;
-        public static final int new_item_barcode_label=0x7f09001c;
-        public static final int new_item_description_edit_text=0x7f090027;
-        public static final int new_item_description_label=0x7f090026;
-        public static final int new_item_image_edit_text=0x7f090025;
-        public static final int new_item_image_label=0x7f090024;
-        public static final int new_item_listed_price_edit_text=0x7f09001f;
-        public static final int new_item_listed_price_label=0x7f09001e;
-        public static final int new_item_location_edit_text=0x7f090023;
-        public static final int new_item_location_label=0x7f090022;
-        public static final int new_item_name_edit_text=0x7f09001b;
-        public static final int new_item_name_label=0x7f09001a;
-        public static final int new_item_sale_price_edit_text=0x7f090021;
-        public static final int new_item_sale_price_label=0x7f090020;
-        public static final int recommendationScrollview=0x7f090015;
-        public static final int recommendationVeticalLayout=0x7f090016;
+        public static final int findLabelTextView=0x7f09000d;
+        public static final int findResultScrollView=0x7f090012;
+        public static final int findResultVerticalLayout=0x7f090013;
+        public static final int find_button=0x7f09000f;
+        public static final int find_edit_text=0x7f09000e;
+        public static final int imageView1=0x7f090010;
+        public static final int instruction_line=0x7f090007;
+        public static final int itemizedScrollView=0x7f090014;
+        public static final int itemizedVerticalLayout=0x7f090015;
+        public static final int menu_end_session=0x7f09002b;
+        public static final int menu_restart=0x7f09002c;
+        public static final int new_item_barcode_edit_text=0x7f090020;
+        public static final int new_item_barcode_label=0x7f09001f;
+        public static final int new_item_description_edit_text=0x7f09002a;
+        public static final int new_item_description_label=0x7f090029;
+        public static final int new_item_image_edit_text=0x7f090028;
+        public static final int new_item_image_label=0x7f090027;
+        public static final int new_item_listed_price_edit_text=0x7f090022;
+        public static final int new_item_listed_price_label=0x7f090021;
+        public static final int new_item_location_edit_text=0x7f090026;
+        public static final int new_item_location_label=0x7f090025;
+        public static final int new_item_name_edit_text=0x7f09001e;
+        public static final int new_item_name_label=0x7f09001d;
+        public static final int new_item_sale_price_edit_text=0x7f090024;
+        public static final int new_item_sale_price_label=0x7f090023;
+        public static final int recommendationScrollview=0x7f090018;
+        public static final int recommendationVeticalLayout=0x7f090019;
         public static final int swipe_n_sign=0x7f090006;
-        public static final int totalTextView=0x7f090007;
+        public static final int totalTextView=0x7f090009;
     }
     public static final class layout {
         public static final int activity_checkout=0x7f030000;
@@ -127,25 +130,26 @@ public final class R {
     }
     public static final class string {
         public static final int add_item_button=0x7f050005;
-        public static final int add_item_dialog_add=0x7f050014;
+        public static final int add_item_dialog_add=0x7f050016;
         /**  Add Item Dialog 
          */
-        public static final int add_item_dialog_barcode_label=0x7f050012;
-        public static final int add_item_dialog_cancel=0x7f050015;
+        public static final int add_item_dialog_barcode_label=0x7f050014;
+        public static final int add_item_dialog_cancel=0x7f050017;
         public static final int app_name=0x7f050000;
-        public static final int barcode_hint=0x7f050013;
+        public static final int barcode_hint=0x7f050015;
         public static final int checkout_back_button=0x7f05000a;
         public static final int checkout_button=0x7f050009;
+        public static final int checkout_instruction=0x7f050013;
         public static final int coupon_button=0x7f050008;
         /**  Coupon Page 
          */
         public static final int coupon_title=0x7f050011;
-        public static final int find_button=0x7f050029;
-        public static final int find_hint=0x7f050028;
+        public static final int find_button=0x7f05002b;
+        public static final int find_hint=0x7f05002a;
         public static final int find_item_button=0x7f050006;
         /**  Find Item Activity Window 
          */
-        public static final int find_label=0x7f050027;
+        public static final int find_label=0x7f050029;
         /**  Find Result Panel 
          */
         public static final int find_result_text=0x7f050010;
@@ -157,34 +161,37 @@ public final class R {
         /**  MyChart Main/Middle Panel 
          */
         public static final int main_panel=0x7f05000b;
-        public static final int map_main=0x7f05002a;
+        public static final int map_main=0x7f05002c;
         public static final int menu_end_session=0x7f050002;
         public static final int menu_restart=0x7f050003;
         public static final int my_cart_button=0x7f050007;
-        public static final int new_item_barcode_hint=0x7f05001c;
-        public static final int new_item_barcode_label=0x7f05001b;
-        public static final int new_item_description_hint=0x7f050026;
-        public static final int new_item_description_label=0x7f050025;
-        public static final int new_item_dialog_cancel=0x7f050018;
+        public static final int new_item_barcode_hint=0x7f05001e;
+        public static final int new_item_barcode_label=0x7f05001d;
+        public static final int new_item_description_hint=0x7f050028;
+        public static final int new_item_description_label=0x7f050027;
+        public static final int new_item_dialog_cancel=0x7f05001a;
         /**  New Item Dialog (New Item to be added to Database)
          */
-        public static final int new_item_dialog_database=0x7f050016;
-        public static final int new_item_dialog_database_cart=0x7f050017;
-        public static final int new_item_image_hint=0x7f050024;
-        public static final int new_item_image_label=0x7f050023;
-        public static final int new_item_listed_price_hint=0x7f05001e;
-        public static final int new_item_listed_price_label=0x7f05001d;
-        public static final int new_item_location_hint=0x7f050022;
-        public static final int new_item_location_label=0x7f050021;
-        public static final int new_item_name_hint=0x7f05001a;
-        public static final int new_item_name_label=0x7f050019;
-        public static final int new_item_sale_price_hint=0x7f050020;
-        public static final int new_item_sale_price_label=0x7f05001f;
+        public static final int new_item_dialog_database=0x7f050018;
+        public static final int new_item_dialog_database_cart=0x7f050019;
+        public static final int new_item_image_hint=0x7f050026;
+        public static final int new_item_image_label=0x7f050025;
+        public static final int new_item_listed_price_hint=0x7f050020;
+        public static final int new_item_listed_price_label=0x7f05001f;
+        public static final int new_item_location_hint=0x7f050024;
+        public static final int new_item_location_label=0x7f050023;
+        public static final int new_item_name_hint=0x7f05001c;
+        public static final int new_item_name_label=0x7f05001b;
+        public static final int new_item_sale_price_hint=0x7f050022;
+        public static final int new_item_sale_price_label=0x7f050021;
         public static final int recommendation_text=0x7f05000e;
         public static final int recommendation_text_2=0x7f05000f;
         /**  Recommendation Panel 
          */
         public static final int right_panel=0x7f05000d;
+        /**  Checkout Page 
+         */
+        public static final int swipe_instruction=0x7f050012;
     }
     public static final class style {
         /** 
