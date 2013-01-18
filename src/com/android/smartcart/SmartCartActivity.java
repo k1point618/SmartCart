@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.android.database.InventoryDbHelper;
@@ -42,7 +45,12 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
     private final String TAG = "SmartCartActivity";
     private static final String RAW_DATA_FILENAME = "data.txt";		//Database
     public static final String DEFAULT_IMAGE = "m";
-	
+	public static final int FIND_RESULT_VERTICAL_LAYOUT = 33;
+	public static final int RECOMMENDATION_VERTICAL_LAYOUT = 333;
+	public static final int COUPON_VERTICAL_LAYOUT = 3333;
+	public final static int ITEMIZED_FONT_SIZE = 30;
+	public final static int ITEMIZED_SUB_FONT_SIZE = 20;
+	public static final String TUTORIAL_IMAGE = "tutorial";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -89,13 +97,13 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				startAddItemActivity();
 				break;
 			case R.id.button2:
-				startFindItemActivity();
+				startFindItemActivity(null);
 				break;
 			case R.id.button3:
 				startMyCartActivity();
 				break;
 			case R.id.button4:
-				startCouponActivity();
+				startCouponsActivity();
 				break;
 			case R.id.button5:
 				startCheckoutActivity();
@@ -107,13 +115,13 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	//Action Response Methods to each of the 5 buttons, 
 	//Should be overridden in sub classes. 
 	protected void startCheckoutActivity() {
-		// TODO Auto-generated method stub
-		
+		Intent intent = new Intent(this, CheckoutActivity.class);
+		startActivity(intent);
 	}
 
-	protected void startCouponActivity() {
-		// TODO Auto-generated method stub
-		
+	protected void startCouponsActivity() {
+		Intent intent = new Intent(this, CouponsActivity.class);
+		startActivity(intent);
 	}
 
 	//This is the Default activity
@@ -122,8 +130,9 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 		startActivity(intent);
 	}
 
-	protected void startFindItemActivity() {
+	protected void startFindItemActivity(String search) {
 		Intent intent = new Intent(this, FindItemActivity.class);
+		intent.putExtra("search", search);
 		startActivity(intent);
 	}
 	
@@ -164,7 +173,6 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 */
 	private void endSession() {
 		SmartCartActivity.model = null;
-		//TODO: When Welcome window is introduced, start Welcome window here. 
 		Intent intent = new Intent(this, WelcomeActivity.class);
 		startActivity(intent);
 		return;
@@ -177,10 +185,15 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 * @param items
 	 * @param mVerticalLayout
 	 */
-	protected void loadItemsToVerticalLayout(ArrayList<Item> items, LinearLayout mVerticalLayout){
+	protected void loadItemsToVerticalLayout(ArrayList<Item> items, LinearLayout mVerticalLayout, int layoutID){
+		
+		/**
+		 * TODO: This removes Find items from previous find... need fix
+		 */
+		mVerticalLayout.removeAllViews();
 		
 		for(Item item: items){
-			LinearLayout rec = new LinearLayout(this);
+			LinearLayout rec = new LinearLayout(this); 	// rec: a single horizontal rectangle
 			rec.setOrientation(LinearLayout.HORIZONTAL);
 			
 			String imageFileName = "m" + item.getBarcode();
@@ -195,19 +208,57 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				imageResourceId = this.getResources().getIdentifier(DEFAULT_IMAGE, "drawable", getPackageName());
 				image = this.getResources().getDrawable(imageResourceId);
 			}
+			image = resize(image, 129, 120);
 			imageButton.setImageDrawable(image);
+			imageButton.setContentDescription(item.getName());
 			imageButton.setOnClickListener(new OnClickListener(){
 				@Override 
-				public void onClick(View arg0){
-					startFindItemActivity();
+				public void onClick(View view){
+					startFindItemActivity(view.getContentDescription().toString());
 				}
 			});
+			
+			LayoutParams imageParams = new LayoutParams(120, 120);
+			imageButton.setLayoutParams(imageParams);
 			rec.addView(imageButton);
 			
 			TextView label = new TextView(this);
 			label.setText(item.getName() + "\n$" + item.getSalePriceText());
+			//If layout is Find's Vertical Result Layout, then Show Location:
+			if(layoutID == FIND_RESULT_VERTICAL_LAYOUT){
+				imageButton.setEnabled(false);
+				label.setText(item.getName() + "\n$" + item.getSalePriceText() + 
+						"\nLocated at Shelf Number: " + item.getLocation());
+			}
+			else if(layoutID == COUPON_VERTICAL_LAYOUT){
+				label.setText(item.getName() + "\nUsed to be: $" + item.getOriginalPriceText() + 
+						"\nNOW: $" + item.getSalePriceText());
+			}
+			
+			LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 1);
+			params.setMargins(5, 5, 5, 5);
+			label.setLayoutParams(params);
 			rec.addView(label);
 			mVerticalLayout.addView(rec);
 		}
+	}
+	
+	/**
+	 * Resizes Drwable
+	 * @param image
+	 * @return
+	 */
+	private Drawable resize(Drawable image, int w, int h) {
+	    Bitmap d = ((BitmapDrawable)image).getBitmap();
+	    int imageW = d.getWidth();
+	    int imageH = d.getHeight();
+	    
+	    if(imageW/(double)imageH >= w/(double)h){
+	    	w = imageW * h / imageH;
+	    }else{
+	    	h = imageH * w / imageW;
+	    }
+	    Bitmap bitmapOrig = Bitmap.createScaledBitmap(d, w, h, false);
+	    return new BitmapDrawable(bitmapOrig);
 	}
 }

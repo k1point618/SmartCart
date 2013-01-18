@@ -8,8 +8,6 @@ public class SmartCartModel {
 	public final String PRICE_HEADER_TAG = "TOTAL DUE: \t\t$";
 	private ArrayList<Item> recommendations;
 	public final static String TAX_TEXT = "MASS TAX 6%";
-	public final static int ITEMIZED_FONT_SIZE = 35;
-	public final static int ITEMIZED_SUB_FONT_SIZE = 20;
 	private static final double TAX_RATE = 0.06;
 	
 	public SmartCartModel(){
@@ -55,6 +53,7 @@ public class SmartCartModel {
 		for(Item i: items){
 			total += i.getSalePrice();
 		}
+		total += this.getTax();
 		return String.format("%.2f", total);
 	}
 
@@ -87,10 +86,15 @@ public class SmartCartModel {
 	}
 	
 	public double getTax(){
-		return Double.parseDouble(this.getTotalPrice())*TAX_RATE;
+		double total = 0;
+		for(Item i: items){
+			total += i.getSalePrice();
+		}
+		return total*TAX_RATE;
 	}
 	
 	public String getTaxText(){
+		
 		return String.format("%.2f", getTax());
 	}
 	

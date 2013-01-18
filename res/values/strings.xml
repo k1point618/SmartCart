@@ -12,9 +12,10 @@
     <string name="add_item_button">Add Item</string>
 	<string name="find_item_button">Find Item</string>
 	<string name="my_cart_button">My Cart</string>
-	<string name="coupon_button">Coupon</string>
+	<string name="coupon_button">Coupons</string>
 	<string name="checkout_button">Checkout</string>
-	
+	<string name="checkout_back_button">Back</string>
+		
 	<!-- MyChart Main/Middle Panel -->
 	<string name="main_panel">This is the Middle/Main Panel</string>
     <string name="itemized_text_view">Itemized Receipt: </string>
@@ -22,9 +23,13 @@
 	<!-- Recommendation Panel -->
 	<string name="right_panel">This is the right panel</string>
     <string name="recommendation_text">Recommendations for You</string>
+	<string name="recommendation_text_2">(Click the image to Find.)</string>
 	
-    <!-- Find Result Panel -->
+	<!-- Find Result Panel -->
     <string name="find_result_text">Search Result(s): </string>
+	
+    <!-- Coupon Page -->
+    <string name="coupon_title">Coupons Available for Today</string>
 	
     <!-- Add Item Dialog -->
 	<string name="add_item_dialog_barcode_label">Barcode: </string>
@@ -62,6 +67,29 @@
     <drawable name="blue">#770000ff</drawable>
     <drawable name="green">#7700ff00</drawable>
 	<drawable name="yellow">#77ffff00</drawable>
+	<drawable name="black">#ff000000</drawable>
+	<drawable name="LightGrey">#D3D3D3</drawable>
+	<drawable name="DarkGrey">#A9A9A9</drawable>
+	<drawable name="white">#ffffff</drawable>
+	
+	<drawable name="recommendation_background_color">#88CEE4FB</drawable>
+	<drawable name="coupon_main_color">#88CEE4FB</drawable>
+	<drawable name="find_result_background_color">#88CEE4FB</drawable>
+	
+	<drawable name="middle_layout_color">#88CEEBE1</drawable>
+	
+	<drawable name="title_banner_color">#AAA9A9A9</drawable>
+	<drawable name="title_banner_color_light">#55A9A9A9</drawable>
+	
+	<drawable name="button_grey">#AAA9A9A9</drawable>
+	<drawable name="button_grey_light">#55A9A9A9</drawable>
+	
+	<drawable name="button_text_color">#18528F</drawable>
+	<drawable name="button_on_color">#5D4E9A</drawable>
+	
+	
+	
+	
 	
 	<drawable name="screen_background_black">#ff000000</drawable>
     <drawable name="translucent_background">#e0000000</drawable>

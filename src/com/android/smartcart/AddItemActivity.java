@@ -34,7 +34,7 @@ public class AddItemActivity extends SmartCartActivity{
 	protected void onCreate(Bundle savedInstanceState){
 		//1. Add debug message to log file
 		Log.i(TAG, "onCreate() ... savedIstanceState = " + savedInstanceState);
-		setContentView(R.layout.activity_my_cart);
+		setContentView(R.layout.empty_activity);
 		super.onCreate(savedInstanceState);
 		showAddItemDialog();
 	}
@@ -200,6 +200,8 @@ public class AddItemActivity extends SmartCartActivity{
 		//Add to cart, or not
 		if(cart){
 			model.addItem(item);
+			MyCartActivity.getRecommendations(item);
+			
 		}
 				
 		//Clear All fields
@@ -245,7 +247,6 @@ public class AddItemActivity extends SmartCartActivity{
 		String name = "";
 		Double sale_price = -1.0;
 		Double original_price = -1.0;
-		String image_location = "";
 		c.moveToFirst();
 		do{
 			barcode = c.getString(c.getColumnIndex(
@@ -270,6 +271,8 @@ public class AddItemActivity extends SmartCartActivity{
 		//Create Item and Add Item to cart
 		Item item = new Item(name, null, sale_price, original_price, 0, barcode);
 		model.addItem(item);
+		MyCartActivity.getRecommendations(item);
+		
 		
 		mBarcodeEditText.setText("");
 		finish();

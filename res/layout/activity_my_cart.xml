@@ -20,14 +20,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" 
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    android:background="@drawable/background_main"
+    >
 
     
     <LinearLayout
             android:layout_width="250dp"
             android:layout_height="match_parent"
 			android:orientation="vertical" 
-			android:background="@drawable/blue">
+			>
 
             <Button
                 android:id="@+id/button1"
@@ -36,6 +38,13 @@
                 android:layout_weight="1"
             	android:text="@string/add_item_button" 
             	android:textSize="30sp"
+            	android:textStyle="bold"
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
             	/>
 
             <Button
@@ -44,6 +53,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
             	android:text="@string/find_item_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
             	android:textSize="30sp"/>
 
             <Button
@@ -52,6 +68,14 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
             	android:text="@string/my_cart_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey_light"
+            	android:textColor="@drawable/button_text_color"
+            	android:enabled="false"
+            	android:textStyle="bold"
             	android:textSize="30sp"/>
 
             <Button
@@ -60,6 +84,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
             	android:text="@string/coupon_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
             	android:textSize="30sp"/>
             
             <Button
@@ -68,6 +99,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
             	android:text="@string/checkout_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
             	android:textSize="30sp"/>
 
         </LinearLayout>
@@ -78,24 +116,26 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:orientation="vertical" 
-        android:layout_marginLeft="10dip"
+        android:layout_marginLeft="0dip"
         android:layout_marginRight="10dip"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/middle_layout_color"
         >
         
-        <TextView
-            android:id="@+id/totalTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_panel"
-            android:textSize="40sp" 
-            />
+        
+        <!-- CENTER SCROLL VIEW:  -->
 
         <ScrollView
             android:id="@+id/itemizedScrollView"
             android:layout_width="fill_parent"
-		    android:layout_height="fill_parent" 
-			android:layout_marginTop="20dip"
-			android:transcriptMode="alwaysScroll">
+            android:layout_height="0dip"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="20dip"
+            android:layout_weight="1"
+            android:transcriptMode="alwaysScroll" >
 			
             <LinearLayout
             	android:id="@+id/itemizedVerticalLayout"
@@ -106,6 +146,31 @@
             </LinearLayout>
             
 		</ScrollView>
+		
+        <!-- TOTAL DUE LINE:  -->
+        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:background="@drawable/title_banner_color"
+	            >
+        
+		        <TextView
+		            android:id="@+id/totalTextView"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:text="@string/main_panel"
+		           	android:layout_marginLeft="20dip" 
+		        	android:layout_marginRight="10dip"
+		        	android:layout_marginBottom="15dip"
+		        	android:layout_marginTop="20dip"
+		            android:textSize="40sp" 
+		            android:textStyle="bold"
+		            android:textColor="@drawable/button_text_color"
+		            />
+
+        </LinearLayout>
+        
         
     </LinearLayout>
     
@@ -115,16 +180,49 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:orientation="vertical" 
-            android:background="@drawable/green">
+            android:background="@drawable/recommendation_background_color"
+            android:layout_marginLeft="10dip"	
+		    android:layout_marginRight="20dip"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="20dip"
+            >
     
-    	<TextView
-		android:id="@+id/RecommendationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="@string/recommendation_text" 
-        />
-
+        <!-- Recommendation Title -->
+        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:background="@drawable/title_banner_color"
+	            >
+        
+            <TextView
+					android:id="@+id/RecommendationTextView"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			      	android:text="@string/recommendation_text" 
+			        android:textColor="@drawable/button_text_color"
+		            android:layout_marginLeft="10dip"	
+		    		android:layout_marginRight="10dip"
+				    android:layout_marginTop="5dip"
+               		android:textStyle="bold"
+		            />
+			    	
+			    	<TextView
+					android:id="@+id/RecommendationTextView2"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="15sp"
+			      	android:text="@string/recommendation_text_2" 
+			        android:textColor="@drawable/button_text_color"
+		            android:layout_marginLeft="10dip"	
+		    		android:layout_marginRight="10dip"
+			       	android:layout_marginBottom="5dip"
+            		android:textStyle="bold"
+		            />
+			            
+        </LinearLayout>
+    	
     	<ScrollView
          android:layout_width="match_parent" 
          android:layout_height="fill_parent" 
@@ -137,7 +235,11 @@
                     android:layout_width="match_parent" 
                     android:layout_height="wrap_content" 
                     android:orientation="vertical"
-                    android:gravity="center_horizontal">  
+                    android:layout_marginLeft="10dip"	
+		        	android:layout_marginRight="10dip"
+            		android:layout_marginBottom="5dip"
+		        	android:layout_marginTop="5dip"
+		        	android:gravity="center_horizontal">  
                     
                 </LinearLayout>
     </ScrollView>

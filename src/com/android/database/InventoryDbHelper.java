@@ -202,4 +202,42 @@ public class InventoryDbHelper extends SQLiteOpenHelper{
 		return false;
 	}
 
+	public ArrayList<Item> getCoupons(){
+		ArrayList<Item> coupons = new ArrayList<Item>();
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor c = db.rawQuery("select * from inventory", null);
+		c.moveToFirst();
+		
+		String barcode = "";
+		String name = "";
+		Double sale_price = -1.0;
+		Double original_price = -1.0;
+		String description = "";
+		int location = 0;
+		
+		do{
+			name = c.getString(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_NAME));
+			description = c.getString(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_DESCRIPTION));
+			barcode = c.getString(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_BARCODE));
+			sale_price = c.getDouble(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_SALE_PRICE));
+			original_price = c.getDouble(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_ORIGINAL_PRICE));
+			location = c.getInt(c.getColumnIndex(
+					InventoryReaderContract.InventoryEntry.COLUMN_NAME_LOCATION));
+			Item i = new Item(name, description, sale_price, original_price, location, barcode);
+			
+			//Search for keywords in name and Description
+			if (sale_price < original_price){
+				coupons.add(i);
+			}
+		}while(c.moveToNext());
+		
+		return coupons;
+	}
+	
 }

@@ -8,6 +8,8 @@
         android:id="@+id/WelcomeButton"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@drawable/black"
+        android:scaleType="fitXY"
         android:src="@drawable/welcome" />
 
 </LinearLayout>

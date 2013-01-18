@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+			android:orientation="horizontal" 
+			android:gravity="center"
+			>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_item_button" 
+            	android:textSize="30sp"
+            	android:textStyle="bold"
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:enabled="false"
+            	android:background="@drawable/button_grey_light"
+            	android:textColor="@drawable/button_text_color"
+            	/>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/find_item_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
+            	android:textSize="30sp"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_cart_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
+            	android:textSize="30sp"/>
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coupon_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
+            	android:textSize="30sp"/>
+            
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/checkout_button" 
+            	android:layout_marginLeft="20dip"	
+		        android:layout_marginRight="20dip"
+            	android:layout_marginTop="20dip"	
+		        android:layout_marginBottom="20dip"
+            	android:background="@drawable/button_grey"
+            	android:textColor="@drawable/button_text_color"
+            	android:textStyle="bold"
+            	android:textSize="30sp"/>
+            
+        </LinearLayout>
+
+</LinearLayout>
