@@ -33,6 +33,8 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 	private TextView mTotalTextView;
     private LinearLayout mItemizedVerticalLayout;
     private ScrollView mItemizedScrollView;
+    private LinearLayout mMainLinearLayout;
+    private ImageView mTutorial;
     
     //Recommendations
     private LinearLayout mRecommendationVerticalLayout;
@@ -54,6 +56,8 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 		mTotalTextView.setText(SmartCartActivity.model.getPriceHeaderDisplay());
 		mItemizedVerticalLayout = (LinearLayout) findViewById(R.id.itemizedVerticalLayout);
 		mItemizedScrollView = (ScrollView) findViewById(R.id.itemizedScrollView);
+		mMainLinearLayout = (LinearLayout) findViewById(R.id.mainLinearLayout);
+		mTutorial = (ImageView) findViewById(R.id.tutorial);
 		
 		//3. Recommendation Scroll 
 		mRecommendationVerticalLayout = (LinearLayout) findViewById(R.id.recommendationVeticalLayout);
@@ -159,25 +163,36 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 		
 		//Tax: Only display when there are items in cart. 
 		if(items.size() > 0){
+			
+			if(mTutorial != null){
+				mMainLinearLayout.removeView(mTutorial);
+				mTutorial = null;
+			}
+			
 			LinearLayout tax = ItemView.getTax(this);
 			mItemizedVerticalLayout.addView(tax);
-		}else if(items.size() == 0){
-			LinearLayout instruction = getInstruction(this);
-			mItemizedVerticalLayout.addView(instruction);
+			//Set Scroll to bottom
+			mItemizedScrollView.post(new Runnable() {
+
+		        @Override
+		        public void run() {
+		            mItemizedScrollView.fullScroll(View.FOCUS_DOWN);
+		        }
+		    });
 		}
+		
+//		else if(items.size() == 0){
+//			LinearLayout instruction = getInstruction(this);
+//			mItemizedVerticalLayout.addView(instruction);
+//		}
+		
+		
 //		//TODO: DEBUG DATABASE View
 //		TextView text = new TextView(this);
 //		text.setText(this.getDatabase(this.mDbHelper.getWritableDatabase()));
 //		mItemizedVerticalLayout.addView(text);
 		
-		//Set Scroll to bottom
-		mItemizedScrollView.post(new Runnable() {
-
-	        @Override
-	        public void run() {
-	            mItemizedScrollView.fullScroll(View.FOCUS_DOWN);
-	        }
-	    });
+		
 
 		loadRecommendations();
 		
@@ -203,7 +218,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 		imageView.setImageDrawable(image);
 
 		LayoutParams imageParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
-		imageParams.setMargins(10, 5, 10, 5);
+		imageParams.setMargins(0, 0, 0, 0);
 		imageView.setLayoutParams(imageParams);
 		toReturn.addView(imageView);
 		

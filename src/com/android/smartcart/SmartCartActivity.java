@@ -226,7 +226,8 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 			label.setText(item.getName() + "\n$" + item.getSalePriceText());
 			//If layout is Find's Vertical Result Layout, then Show Location:
 			if(layoutID == FIND_RESULT_VERTICAL_LAYOUT){
-				imageButton.setEnabled(false);
+				//Enable Clicking and onclick listener.
+				imageButton.setEnabled(true);
 				label.setText(item.getName() + "\n$" + item.getSalePriceText() + 
 						"\nLocated at Shelf Number: " + item.getLocation());
 			}
@@ -248,7 +249,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 * @param image
 	 * @return
 	 */
-	private Drawable resize(Drawable image, int w, int h) {
+	protected Drawable resize(Drawable image, int w, int h) {
 	    Bitmap d = ((BitmapDrawable)image).getBitmap();
 	    int imageW = d.getWidth();
 	    int imageH = d.getHeight();
@@ -260,5 +261,16 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	    }
 	    Bitmap bitmapOrig = Bitmap.createScaledBitmap(d, w, h, false);
 	    return new BitmapDrawable(bitmapOrig);
+	}
+
+	/**
+	 * Remove item from list and then refresh;
+	 * @param barcode
+	 */
+	public void removeItem(String barcode) {
+		SmartCartActivity.model.deleteItem(barcode);
+		Intent intent = new Intent(this, MyCartActivity.class);
+		startActivity(intent);
+		
 	}
 }

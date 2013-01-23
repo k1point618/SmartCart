@@ -27,7 +27,8 @@
 	
 	<!-- Find Result Panel -->
     <string name="find_result_text">Search Result(s): </string>
-	
+    <string name="find_result_text_2">Click the image to show location. </string>
+    	
     <!-- Coupon Page -->
     <string name="coupon_title">Coupons Available for Today</string>
 	
@@ -76,31 +77,24 @@
 	<drawable name="DarkGrey">#A9A9A9</drawable>
 	<drawable name="white">#ffffff</drawable>
 	
-	<drawable name="recommendation_background_color">#88CEE4FB</drawable>
-	<drawable name="coupon_main_color">#88CEE4FB</drawable>
-	<drawable name="find_result_background_color">#88CEE4FB</drawable>
+	<drawable name="recommendation_background_color">#AACEE4FB</drawable>
+	<drawable name="coupon_main_color">#AACEE4FB</drawable>
+	<drawable name="find_result_background_color">#AACEE4FB</drawable>
 	
-	<drawable name="middle_layout_color">#88CEEBE1</drawable>
+	<drawable name="middle_layout_color">#AAC1EED2</drawable>
 	
 	<drawable name="title_banner_color">#AAA9A9A9</drawable>
 	<drawable name="title_banner_color_light">#55A9A9A9</drawable>
 	
+	<!-- <drawable name="button_grey">#AAA9A9A9</drawable>
+	<drawable name="button_grey_light">#55A9A9A9</drawable>
+	 -->
 	<drawable name="button_grey">#AAA9A9A9</drawable>
 	<drawable name="button_grey_light">#55A9A9A9</drawable>
+	<drawable name="button_transparent">#AAC1EED2</drawable>
 	
 	<drawable name="button_text_color">#18528F</drawable>
-	<drawable name="button_on_color">#5D4E9A</drawable>
+	<drawable name="button_untext_color">#5518528F</drawable>
 	
-	
-	
-	
-	
-	<drawable name="screen_background_black">#ff000000</drawable>
-    <drawable name="translucent_background">#e0000000</drawable>
-    <drawable name="transparent_background">#00000000</drawable>
 
-    <color name="solid_red">#f00</color>
-    <color name="solid_blue">#0000ff</color>
-    <color name="solid_green">#f0f0</color>
-    <color name="solid_yellow">#ffffff00</color>
 </resources>

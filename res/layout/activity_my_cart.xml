@@ -73,7 +73,7 @@
             	android:layout_marginTop="20dip"	
 		        android:layout_marginBottom="20dip"
             	android:background="@drawable/button_grey_light"
-            	android:textColor="@drawable/button_text_color"
+            	android:textColor="@drawable/button_untext_color"
             	android:enabled="false"
             	android:textStyle="bold"
             	android:textSize="30sp"/>
@@ -112,6 +112,7 @@
     
     <!-- Middle/Main Panel -->
     <LinearLayout
+        android:id="@+id/mainLinearLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -125,7 +126,12 @@
         
         
         <!-- CENTER SCROLL VIEW:  -->
-
+		<ImageView
+            android:id="@+id/tutorial"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tutorial" android:contentDescription="@string/map_main"/>
+		
         <ScrollView
             android:id="@+id/itemizedScrollView"
             android:layout_width="fill_parent"

@@ -49,13 +49,13 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 		mCheckoutInstruction = (TextView) findViewById(R.id.checkoutInstruction);
 		mInstructionLine = (LinearLayout) findViewById(R.id.instruction_line);
 		
-		//TODO: Clicking on mSqipeNSign will = input
-		mMockButton = new Button(this);
-		mMockButton.setText("Click Here");
-		mMockButton.setContentDescription("mMockButton");
-		mMockButton.setId(mMockButton_id);
-		mMockButton.setOnClickListener(this);
-		mSwipeNSign.addView(mMockButton);
+//		//TODO: Clicking on mSqipeNSign will = input
+//		mMockButton = new Button(this);
+//		mMockButton.setText("Click Here");
+//		mMockButton.setContentDescription("mMockButton");
+//		mMockButton.setId(mMockButton_id);
+//		mMockButton.setOnClickListener(this);
+//		mSwipeNSign.addView(mMockButton);
 	}
 	
 	@Override

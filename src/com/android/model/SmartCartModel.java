@@ -98,4 +98,18 @@ public class SmartCartModel {
 		return String.format("%.2f", getTax());
 	}
 	
+	/**
+	 * Delete the item with the input barcode. 
+	 * @param barcode
+	 */
+	public void deleteItem(String barcode){
+		Item toDelete = null;
+		for(Item i: items){
+			if(barcode.equals(i.getBarcode())){
+				toDelete = i;
+			}
+		}
+		items.remove(toDelete);
+	}
+	
 }

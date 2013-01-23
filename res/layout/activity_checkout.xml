@@ -25,7 +25,7 @@
             	android:layout_marginTop="20dip"	
 		        android:layout_marginBottom="20dip"
             	android:background="@drawable/button_grey_light"
-            	android:textColor="@drawable/button_text_color"
+            	android:textColor="@drawable/button_untext_color"
             	android:enabled="false"
             	/>
 
@@ -40,7 +40,7 @@
             	android:layout_marginTop="20dip"	
 		        android:layout_marginBottom="20dip"
             	android:background="@drawable/button_grey_light"
-            	android:textColor="@drawable/button_text_color"
+            	android:textColor="@drawable/button_untext_color"
             	android:enabled="false"
             	android:textStyle="bold"
             	android:textSize="30sp"/>
@@ -56,7 +56,7 @@
             	android:layout_marginTop="20dip"	
 		        android:layout_marginBottom="20dip"
             	android:background="@drawable/button_grey_light"
-            	android:textColor="@drawable/button_text_color"
+            	android:textColor="@drawable/button_untext_color"
             	android:enabled="false"
             	android:textStyle="bold"
             	android:textSize="30sp"/>
@@ -72,7 +72,7 @@
             	android:layout_marginTop="20dip"	
 		        android:layout_marginBottom="20dip"
             	android:background="@drawable/button_grey_light"
-            	android:textColor="@drawable/button_text_color"
+            	android:textColor="@drawable/button_untext_color"
             	android:enabled="false"
             	android:textStyle="bold"
             	android:textSize="30sp"/>
@@ -108,19 +108,18 @@
         <!-- Checkout Image, will turn into signature  -->
         <LinearLayout
 	            android:layout_width="fill_parent"
-	            android:layout_height="200dip"
+	            android:layout_height="wrap_content"
 	            android:orientation="vertical"
 	            android:background="@drawable/title_banner_color"
 	            android:id="@+id/swipe_n_sign">
 	        
-	        <ImageView 
-	            android:src="@drawable/swipe_up"
+	        <ImageView
 	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="1"
+	            android:layout_height="wrap_content" 
 	            android:layout_gravity="center_vertical"
+	            android:layout_weight="13.20"
 	            android:contentDescription="@string/swipe_instruction"
-	            />
+	            android:src="@drawable/swipe_up" />
         
         </LinearLayout>
         

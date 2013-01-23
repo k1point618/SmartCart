@@ -3,6 +3,9 @@ package com.android.smartcart;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -19,7 +22,7 @@ public class ItemView{
 	 * @param item
 	 * @return
 	 */
-	public static LinearLayout getView(Context context, Item item){
+	public static LinearLayout getView(final MyCartActivity context, Item item){
 		LinearLayout toReturn = new LinearLayout(context);
 		toReturn.setOrientation(LinearLayout.HORIZONTAL);
 		
@@ -67,6 +70,27 @@ public class ItemView{
 			priceTextView.setText("$" + item.getSalePriceText());
 			toReturn.addView(priceTextView);
 		
+			//4. Add Delete Button
+			ImageButton removeButton = new ImageButton(context);
+			String deleteFileName = "delete";
+			int deleteResourceid=0;
+			Drawable deleteDrawable;
+			deleteResourceid = context.getResources().getIdentifier(deleteFileName, "drawable", context.getPackageName());
+			deleteDrawable = context.getResources().getDrawable(deleteResourceid);
+			removeButton.setImageDrawable(deleteDrawable);
+			removeButton.setContentDescription(item.getBarcode());
+			removeButton.setOnClickListener(new OnClickListener(){
+				@Override 
+				public void onClick(View view){
+					context.removeItem(view.getContentDescription().toString());
+				}
+			});
+			LayoutParams deleteParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
+			deleteParams.gravity = Gravity.CENTER_VERTICAL;
+			removeButton.setLayoutParams(deleteParams);
+			removeButton.setBackgroundResource(R.drawable.button_transparent);
+			toReturn.addView(removeButton);
+			
 		LayoutParams llParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
 		toReturn.setLayoutParams(llParams);
 		return toReturn;
@@ -76,6 +100,7 @@ public class ItemView{
 	public static LinearLayout getTax(Context context) {
 		LinearLayout toReturn = new LinearLayout(context);
 		
+		//MASS TAX
 		TextView massTax = new TextView(context);
 		massTax.setText(SmartCartModel.TAX_TEXT);
 		massTax.setTextSize(SmartCartActivity.ITEMIZED_FONT_SIZE);
@@ -85,10 +110,14 @@ public class ItemView{
 		params.setMargins(5, 3, 5, 2);
 		massTax.setLayoutParams(params);
 		
+		//AMOUNT
 		TextView priceTextView = new TextView(context);
 		priceTextView.setTextSize(SmartCartActivity.ITEMIZED_FONT_SIZE);
 		priceTextView.setText("$" + SmartCartActivity.model.getTaxText());
 		toReturn.addView(priceTextView);
+		LayoutParams priceParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		priceParams.setMargins(5, 3, 60, 2);
+		priceTextView.setLayoutParams(priceParams);
 		
 		LayoutParams llParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
 		toReturn.setLayoutParams(llParams);
