@@ -56,6 +56,38 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 //		mMockButton.setId(mMockButton_id);
 //		mMockButton.setOnClickListener(this);
 //		mSwipeNSign.addView(mMockButton);
+		
+		SwipeListenerThread slt = new SwipeListenerThread(this);
+		Thread t = new Thread(slt);
+		t.start();
+	}
+	
+	public class SwipeListenerThread implements Runnable{
+
+		private SoundMeter sm;
+		private boolean listening = true;
+		public SwipeListenerThread(CheckoutActivity c){
+			sm = new SoundMeter();
+			sm.start();
+		}
+		
+		@Override
+		public void run() {
+			int i = 0;
+			while(i < 20){
+				double amp = sm.getAmplitude();
+				Log.i(TAG, "SwipeListenerThread() ... Listening = " + amp);
+				i++;
+				//Wait for 1 sec
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			sm.stop();
+		}
+		
 	}
 	
 	@Override
