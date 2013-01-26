@@ -15,26 +15,26 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int DarkGrey=0x7f02001d;
-        public static final int LightGrey=0x7f02001c;
+        public static final int DarkGrey=0x7f02001e;
+        public static final int LightGrey=0x7f02001d;
         public static final int background=0x7f020000;
         public static final int background_dark=0x7f020001;
         public static final int background_main=0x7f020002;
-        public static final int black=0x7f02001b;
-        public static final int blue=0x7f020018;
+        public static final int black=0x7f02001c;
+        public static final int blue=0x7f020019;
         /**  <drawable name="button_grey">#AAA9A9A9</drawable>
 	<drawable name="button_grey_light">#55A9A9A9</drawable>
 	 
          */
-        public static final int button_grey=0x7f020025;
-        public static final int button_grey_light=0x7f020026;
-        public static final int button_text_color=0x7f020028;
-        public static final int button_transparent=0x7f020027;
-        public static final int button_untext_color=0x7f020029;
-        public static final int coupon_main_color=0x7f020020;
+        public static final int button_grey=0x7f020026;
+        public static final int button_grey_light=0x7f020027;
+        public static final int button_text_color=0x7f020029;
+        public static final int button_transparent=0x7f020028;
+        public static final int button_untext_color=0x7f02002a;
+        public static final int coupon_main_color=0x7f020021;
         public static final int delete=0x7f020003;
-        public static final int find_result_background_color=0x7f020021;
-        public static final int green=0x7f020019;
+        public static final int find_result_background_color=0x7f020022;
+        public static final int green=0x7f02001a;
         public static final int here=0x7f020004;
         public static final int ic_launcher=0x7f020005;
         public static final int imgres=0x7f020006;
@@ -50,19 +50,20 @@ public final class R {
         public static final int m333333=0x7f020010;
         public static final int m6954767410388=0x7f020011;
         public static final int map1=0x7f020012;
-        public static final int middle_layout_color=0x7f020022;
-        public static final int recommendation_background_color=0x7f02001f;
+        public static final int middle_layout_color=0x7f020023;
+        public static final int recommendation_background_color=0x7f020020;
         /**  Colors and Such 
          */
-        public static final int red=0x7f020017;
+        public static final int red=0x7f020018;
         public static final int strange_bullseyes_2x=0x7f020013;
         public static final int swipe_up=0x7f020014;
-        public static final int title_banner_color=0x7f020023;
-        public static final int title_banner_color_light=0x7f020024;
-        public static final int tutorial=0x7f020015;
-        public static final int welcome=0x7f020016;
-        public static final int white=0x7f02001e;
-        public static final int yellow=0x7f02001a;
+        public static final int thankyou=0x7f020015;
+        public static final int title_banner_color=0x7f020024;
+        public static final int title_banner_color_light=0x7f020025;
+        public static final int tutorial=0x7f020016;
+        public static final int welcome=0x7f020017;
+        public static final int white=0x7f02001f;
+        public static final int yellow=0x7f02001b;
     }
     public static final class id {
         public static final int CouponScrollView=0x7f08000b;
@@ -120,10 +121,11 @@ public final class R {
         public static final int activity_coupons=0x7f030001;
         public static final int activity_find_item=0x7f030002;
         public static final int activity_my_cart=0x7f030003;
-        public static final int activity_welcome=0x7f030004;
-        public static final int add_item_dialog=0x7f030005;
-        public static final int empty_activity=0x7f030006;
-        public static final int new_item_dialog=0x7f030007;
+        public static final int activity_thankyou=0x7f030004;
+        public static final int activity_welcome=0x7f030005;
+        public static final int add_item_dialog=0x7f030006;
+        public static final int empty_activity=0x7f030007;
+        public static final int new_item_dialog=0x7f030008;
     }
     public static final class menu {
         public static final int activity_coupons=0x7f070000;

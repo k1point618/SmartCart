@@ -2,6 +2,7 @@ package com.android.smartcart;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -62,22 +63,39 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 		t.start();
 	}
 	
+	/**
+	 * Listener Thread for Swiping. 
+	 * @author kerengu
+	 *
+	 */
 	public class SwipeListenerThread implements Runnable{
 
 		private SoundMeter sm;
 		private boolean listening = true;
+		private CheckoutActivity activity;
 		public SwipeListenerThread(CheckoutActivity c){
 			sm = new SoundMeter();
 			sm.start();
+			activity = c;
 		}
 		
 		@Override
 		public void run() {
-			int i = 0;
-			while(i < 20){
+			while(listening){
 				double amp = sm.getAmplitude();
 				Log.i(TAG, "SwipeListenerThread() ... Listening = " + amp);
-				i++;
+			
+				//TODO: Frequency here
+				if(amp >= 2){
+					listening = false;
+					activity.runOnUiThread(new Runnable(){
+						@Override 
+						public void run(){
+							swiped(0);
+							addButtons();
+						}
+					});
+				}
 				//Wait for 1 sec
 				try {
 					Thread.sleep(1000);
@@ -124,8 +142,8 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 	 * Complete transaction by asking for their email, after signing. 
 	 */
 	private void completeTrasaction() {
-		// TODO Auto-generated method stub
-		
+		Intent intent = new Intent(this, ThankYouActivity.class);
+		startActivity(intent);
 	}
 
 	private void processing() {
@@ -136,7 +154,6 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 	 * Button5 is now the Back Button
 	 */
 	private void back() {
-		// TODO Auto-generated method stub
 		finish();
 	}
 
@@ -160,6 +177,7 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 		
 		//Change the instruction
 		mCheckoutInstruction.setText("Please Sign Above");
+		
 	}
 	
 	private void addButtons() {
