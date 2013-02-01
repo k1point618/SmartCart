@@ -2,6 +2,7 @@ package com.android.smartcart;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -137,6 +139,11 @@ public class FindItemActivity extends SmartCartActivity implements View.OnClickL
 		 * TODO: This removes Find items from previous find... need fix
 		 */
 		mVerticalLayout.removeAllViews();
+		
+		//Show first item's Location
+		if(!items.isEmpty()){
+			setLocation(items.get(0).getLocation());
+		}
 		
 		for(final Item item: items){
 			LinearLayout rec = new LinearLayout(this); 	// rec: a single horizontal rectangle

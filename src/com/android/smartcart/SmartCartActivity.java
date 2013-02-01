@@ -162,7 +162,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 */
 	private void restart() {
 		SmartCartActivity.model = null;
-		Intent intent = new Intent(this, MyCartActivity.class);
+		Intent intent = new Intent(this, WelcomeActivity.class);
 		startActivity(intent);
 		return;
 		
@@ -173,7 +173,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 */
 	private void endSession() {
 		SmartCartActivity.model = null;
-		Intent intent = new Intent(this, WelcomeActivity.class);
+		Intent intent = new Intent(this, ThankYouActivity.class);
 		startActivity(intent);
 		return;
 	}
@@ -232,6 +232,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 						"\nLocated at Shelf Number: " + item.getLocation());
 			}
 			else if(layoutID == COUPON_VERTICAL_LAYOUT){
+				label.setTextSize(20);
 				label.setText(item.getName() + "\nUsed to be: $" + item.getOriginalPriceText() + 
 						"\nNOW: $" + item.getSalePriceText());
 			}

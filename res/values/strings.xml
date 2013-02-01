@@ -4,7 +4,7 @@
     <string name="app_name">SmartCart</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_end_session">End Session</string>
-    <string name="menu_restart">Restart</string>
+    <string name="menu_restart">New Session</string>
     
     
     <!-- Buttons: left panel -->

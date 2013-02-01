@@ -128,9 +128,11 @@ public final class R {
         public static final int new_item_dialog=0x7f030008;
     }
     public static final class menu {
-        public static final int activity_coupons=0x7f070000;
-        public static final int activity_find_item=0x7f070001;
-        public static final int activity_my_cart=0x7f070002;
+        public static final int activity_checkout=0x7f070000;
+        public static final int activity_coupons=0x7f070001;
+        public static final int activity_find_item=0x7f070002;
+        public static final int activity_my_cart=0x7f070003;
+        public static final int activity_welcome=0x7f070004;
     }
     public static final class string {
         public static final int add_item_button=0x7f050005;

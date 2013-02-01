@@ -37,41 +37,30 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 	}
 
 
+	/**
+	 * Click Listener for Menu Options. 
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
 		//Handle item selection
+		Intent intent = null;
 		switch(item.getItemId()){
 			case R.id.menu_end_session:
-				endSession();
+				SmartCartActivity.model = null;
+				intent = new Intent(this, ThankYouActivity.class);
+				startActivity(intent);
 				return true;
 			case R.id.menu_restart:
-				restart();
+				SmartCartActivity.model = null;
+				intent = new Intent(this, WelcomeActivity.class);
+				startActivity(intent);
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
 	}
 
-	/**
-	 * Restart will clear existing data in the model, and return to MyCartActivity
-	 */
-	private void restart() {
-		SmartCartActivity.model = null;
-		Intent intent = new Intent(this, MyCartActivity.class);
-		startActivity(intent);
-		return;
-		
-	}
-
-	/**
-	 * EndSession will clear existing data in the model, and return to Welcome Window
-	 */
-	private void endSession() {
-		SmartCartActivity.model = null;
-		Intent intent = new Intent(this, WelcomeActivity.class);
-		startActivity(intent);
-		return;
-	}
+	
 	@Override
 	public void onClick(View arg0) {
 		

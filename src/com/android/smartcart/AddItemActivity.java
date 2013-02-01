@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.android.database.InventoryDbHelper;
@@ -90,6 +92,8 @@ public class AddItemActivity extends SmartCartActivity{
 								}
 							});
 				mAddItemDialog = builder.create();
+				mAddItemDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+				
 				return mAddItemDialog;
 			case NEW_ITEM_DIALOG:
 				LayoutInflater factory2 = LayoutInflater.from(this);
@@ -131,12 +135,8 @@ public class AddItemActivity extends SmartCartActivity{
 								}
 							});
 				mNewItemDialog = builder2.create();
-//				EditText mBarcodeEditText = (EditText) mNewItemDialog.findViewById(R.id.new_item_barcode_edit_text);
-				EditText addItemBarcode = (EditText) mAddItemDialog.findViewById(R.id.barcode_edit_text);
-//				Editable e = addItemBarcode.getText();
-//				String s = e.toString();
-//				mBarcodeEditText.setText(s);
-				addItemBarcode.setText("");
+				EditText addItemBarcode0 = (EditText) mAddItemDialog.findViewById(R.id.barcode_edit_text);
+				addItemBarcode0.setText("");
 				return mNewItemDialog;
 				
 		}

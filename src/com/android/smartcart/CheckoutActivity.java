@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -27,7 +29,7 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 	private LinearLayout mInstructionLine;
 	private final int mClear_id = 12345;
 	private final int mFinish_id = 23412;
-	
+	private SwipeListenerThread slt;
 	//TODO: TEMP
 	private Button mMockButton;
 	private final int mMockButton_id=1010110;
@@ -58,9 +60,9 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 //		mMockButton.setOnClickListener(this);
 //		mSwipeNSign.addView(mMockButton);
 		
-		SwipeListenerThread slt = new SwipeListenerThread(this);
-		Thread t = new Thread(slt);
-		t.start();
+		slt = new SwipeListenerThread(this);
+		Thread thread = new Thread(slt);
+		thread.start();
 	}
 	
 	/**
@@ -85,7 +87,7 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 				double amp = sm.getAmplitude();
 				Log.i(TAG, "SwipeListenerThread() ... Listening = " + amp);
 			
-				//TODO: Frequency here
+				//Square's Swipe is between 12 and 13, in Amp
 				if(amp > 12 && amp < 13){
 					listening = false;
 					activity.runOnUiThread(new Runnable(){
@@ -111,7 +113,46 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 			}
 			sm.stop();
 		}
+
+		public boolean isListening() {
+			return listening;
+		}
+
+		public void setListening(boolean listening) {
+			this.listening = listening;
+		}
 		
+		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_checkout, menu);
+		return true;
+	}
+	
+	/**
+	 * Click Listener for Menu Options. 
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		//Handle item selection
+		Intent intent = null;
+		switch(item.getItemId()){
+			case R.id.menu_end_session:
+				SmartCartActivity.model = null;
+				intent = new Intent(this, ThankYouActivity.class);
+				startActivity(intent);
+				return true;
+			case R.id.menu_restart:
+				SmartCartActivity.model = null;
+				intent = new Intent(this, WelcomeActivity.class);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	@Override
@@ -131,6 +172,7 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 			    }, 2000); 
 			    break;
 			case R.id.checkoutBackButton:
+				this.slt.setListening(false);
 				back();
 				break;
 			case 12345:
