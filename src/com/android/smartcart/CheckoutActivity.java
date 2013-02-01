@@ -86,13 +86,19 @@ public class CheckoutActivity extends Activity implements View.OnClickListener{
 				Log.i(TAG, "SwipeListenerThread() ... Listening = " + amp);
 			
 				//TODO: Frequency here
-				if(amp >= 2){
+				if(amp > 12 && amp < 13){
 					listening = false;
 					activity.runOnUiThread(new Runnable(){
 						@Override 
 						public void run(){
-							swiped(0);
-							addButtons();
+							processing();
+							Handler handler = new Handler(); 
+						    handler.postDelayed(new Runnable() { 
+						         public void run() { 
+						        	 swiped(0);
+						        	 addButtons();
+						         } 
+						    }, 2000); 
 						}
 					});
 				}

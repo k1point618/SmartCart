@@ -138,7 +138,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	
 	protected void startAddItemActivity() {
 		Intent intent = new Intent(this, AddItemActivity.class);
-		startActivityForResult(intent, 0);
+		startActivity(intent);
 		
 	}
 	

@@ -272,10 +272,11 @@ public class AddItemActivity extends SmartCartActivity{
 		Item item = new Item(name, null, sale_price, original_price, 0, barcode);
 		model.addItem(item);
 		MyCartActivity.getRecommendations(item);
-		
-		
+	
+		startMyCartActivity();
 		mBarcodeEditText.setText("");
 		finish();
+		
 	}
 	
 }
