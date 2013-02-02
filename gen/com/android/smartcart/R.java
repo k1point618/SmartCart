@@ -58,6 +58,9 @@ public final class R {
         public static final int strange_bullseyes_2x=0x7f020013;
         public static final int swipe_up=0x7f020014;
         public static final int thankyou=0x7f020015;
+        public static final int theme_green=0x7f02002d;
+        public static final int theme_purple=0x7f02002b;
+        public static final int theme_red=0x7f02002c;
         public static final int title_banner_color=0x7f020024;
         public static final int title_banner_color_light=0x7f020025;
         public static final int tutorial=0x7f020016;
@@ -68,13 +71,17 @@ public final class R {
     public static final class id {
         public static final int CouponScrollView=0x7f08000b;
         public static final int CouponVerticalLayout=0x7f08000c;
+        public static final int Email=0x7f080021;
         public static final int FindResultTextView=0x7f080012;
         public static final int FindResultTextView2=0x7f080013;
+        public static final int NoButton=0x7f08001f;
         public static final int RecommendationTextView=0x7f08001a;
         public static final int RecommendationTextView2=0x7f08001b;
-        public static final int WelcomeButton=0x7f08001e;
-        public static final int barcode_edit_text=0x7f080020;
-        public static final int barcode_label=0x7f08001f;
+        public static final int ThankYouImage=0x7f08001e;
+        public static final int WelcomeButton=0x7f080022;
+        public static final int YesButton=0x7f080020;
+        public static final int barcode_edit_text=0x7f080024;
+        public static final int barcode_label=0x7f080023;
         public static final int button1=0x7f080000;
         public static final int button2=0x7f080001;
         public static final int button3=0x7f080002;
@@ -94,22 +101,22 @@ public final class R {
         public static final int itemizedVerticalLayout=0x7f080019;
         public static final int mainLinearLayout=0x7f080016;
         public static final int mapRelativeLayout=0x7f080010;
-        public static final int menu_end_session=0x7f08002f;
-        public static final int menu_restart=0x7f080030;
-        public static final int new_item_barcode_edit_text=0x7f080024;
-        public static final int new_item_barcode_label=0x7f080023;
-        public static final int new_item_description_edit_text=0x7f08002e;
-        public static final int new_item_description_label=0x7f08002d;
-        public static final int new_item_image_edit_text=0x7f08002c;
-        public static final int new_item_image_label=0x7f08002b;
-        public static final int new_item_listed_price_edit_text=0x7f080026;
-        public static final int new_item_listed_price_label=0x7f080025;
-        public static final int new_item_location_edit_text=0x7f08002a;
-        public static final int new_item_location_label=0x7f080029;
-        public static final int new_item_name_edit_text=0x7f080022;
-        public static final int new_item_name_label=0x7f080021;
-        public static final int new_item_sale_price_edit_text=0x7f080028;
-        public static final int new_item_sale_price_label=0x7f080027;
+        public static final int menu_end_session=0x7f080033;
+        public static final int menu_restart=0x7f080034;
+        public static final int new_item_barcode_edit_text=0x7f080028;
+        public static final int new_item_barcode_label=0x7f080027;
+        public static final int new_item_description_edit_text=0x7f080032;
+        public static final int new_item_description_label=0x7f080031;
+        public static final int new_item_image_edit_text=0x7f080030;
+        public static final int new_item_image_label=0x7f08002f;
+        public static final int new_item_listed_price_edit_text=0x7f08002a;
+        public static final int new_item_listed_price_label=0x7f080029;
+        public static final int new_item_location_edit_text=0x7f08002e;
+        public static final int new_item_location_label=0x7f08002d;
+        public static final int new_item_name_edit_text=0x7f080026;
+        public static final int new_item_name_label=0x7f080025;
+        public static final int new_item_sale_price_edit_text=0x7f08002c;
+        public static final int new_item_sale_price_label=0x7f08002b;
         public static final int recommendationScrollview=0x7f08001c;
         public static final int recommendationVeticalLayout=0x7f08001d;
         public static final int swipe_n_sign=0x7f080006;
@@ -136,13 +143,13 @@ public final class R {
     }
     public static final class string {
         public static final int add_item_button=0x7f050005;
-        public static final int add_item_dialog_add=0x7f050017;
+        public static final int add_item_dialog_add=0x7f05001a;
         /**  Add Item Dialog 
          */
-        public static final int add_item_dialog_barcode_label=0x7f050015;
-        public static final int add_item_dialog_cancel=0x7f050018;
+        public static final int add_item_dialog_barcode_label=0x7f050018;
+        public static final int add_item_dialog_cancel=0x7f05001b;
         public static final int app_name=0x7f050000;
-        public static final int barcode_hint=0x7f050016;
+        public static final int barcode_hint=0x7f050019;
         public static final int checkout_back_button=0x7f05000a;
         public static final int checkout_button=0x7f050009;
         public static final int checkout_instruction=0x7f050014;
@@ -150,12 +157,13 @@ public final class R {
         /**  Coupon Page 
          */
         public static final int coupon_title=0x7f050012;
-        public static final int find_button=0x7f05002c;
-        public static final int find_hint=0x7f05002b;
+        public static final int email_hint=0x7f050017;
+        public static final int find_button=0x7f05002f;
+        public static final int find_hint=0x7f05002e;
         public static final int find_item_button=0x7f050006;
         /**  Find Item Activity Window 
          */
-        public static final int find_label=0x7f05002a;
+        public static final int find_label=0x7f05002d;
         /**  Find Result Panel 
          */
         public static final int find_result_text=0x7f050010;
@@ -168,29 +176,30 @@ public final class R {
         /**  MyChart Main/Middle Panel 
          */
         public static final int main_panel=0x7f05000b;
-        public static final int map_main=0x7f05002d;
+        public static final int map_main=0x7f050030;
         public static final int menu_end_session=0x7f050002;
         public static final int menu_restart=0x7f050003;
         public static final int my_cart_button=0x7f050007;
-        public static final int new_item_barcode_hint=0x7f05001f;
-        public static final int new_item_barcode_label=0x7f05001e;
-        public static final int new_item_description_hint=0x7f050029;
-        public static final int new_item_description_label=0x7f050028;
-        public static final int new_item_dialog_cancel=0x7f05001b;
+        public static final int new_item_barcode_hint=0x7f050022;
+        public static final int new_item_barcode_label=0x7f050021;
+        public static final int new_item_description_hint=0x7f05002c;
+        public static final int new_item_description_label=0x7f05002b;
+        public static final int new_item_dialog_cancel=0x7f05001e;
         /**  New Item Dialog (New Item to be added to Database)
          */
-        public static final int new_item_dialog_database=0x7f050019;
-        public static final int new_item_dialog_database_cart=0x7f05001a;
-        public static final int new_item_image_hint=0x7f050027;
-        public static final int new_item_image_label=0x7f050026;
-        public static final int new_item_listed_price_hint=0x7f050021;
-        public static final int new_item_listed_price_label=0x7f050020;
-        public static final int new_item_location_hint=0x7f050025;
-        public static final int new_item_location_label=0x7f050024;
-        public static final int new_item_name_hint=0x7f05001d;
-        public static final int new_item_name_label=0x7f05001c;
-        public static final int new_item_sale_price_hint=0x7f050023;
-        public static final int new_item_sale_price_label=0x7f050022;
+        public static final int new_item_dialog_database=0x7f05001c;
+        public static final int new_item_dialog_database_cart=0x7f05001d;
+        public static final int new_item_image_hint=0x7f05002a;
+        public static final int new_item_image_label=0x7f050029;
+        public static final int new_item_listed_price_hint=0x7f050024;
+        public static final int new_item_listed_price_label=0x7f050023;
+        public static final int new_item_location_hint=0x7f050028;
+        public static final int new_item_location_label=0x7f050027;
+        public static final int new_item_name_hint=0x7f050020;
+        public static final int new_item_name_label=0x7f05001f;
+        public static final int new_item_sale_price_hint=0x7f050026;
+        public static final int new_item_sale_price_label=0x7f050025;
+        public static final int no_button=0x7f050016;
         public static final int recommendation_text=0x7f05000e;
         public static final int recommendation_text_2=0x7f05000f;
         /**  Recommendation Panel 
@@ -199,6 +208,9 @@ public final class R {
         /**  Checkout Page 
          */
         public static final int swipe_instruction=0x7f050013;
+        /**  Thankyou Page 
+         */
+        public static final int yes_button=0x7f050015;
     }
     public static final class style {
         /** 

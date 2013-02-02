@@ -36,6 +36,11 @@
     <string name="swipe_instruction">Swipe your card.</string>
 	<string name="checkout_instruction">When you are ready, please swipe your card above.</string>
 	
+	<!-- Thankyou Page -->
+	<string name="yes_button">  Yes  </string>
+	<string name="no_button">  No  </string>
+	<string name="email_hint">Email Address</string>
+	
     <!-- Add Item Dialog -->
 	<string name="add_item_dialog_barcode_label">Barcode: </string>
 	<string name="barcode_hint">12-digit Barcode</string>
@@ -96,5 +101,8 @@
 	<drawable name="button_text_color">#18528F</drawable>
 	<drawable name="button_untext_color">#5518528F</drawable>
 	
+	<drawable name="theme_purple">#6D5BB3</drawable>
+	<drawable name="theme_red">#6D5BB3</drawable>
+	<drawable name="theme_green">#6D5BB3</drawable>
 
 </resources>

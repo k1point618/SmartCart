@@ -7,7 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class ThankYouActivity extends Activity implements View.OnClickListener{
 
@@ -16,6 +17,10 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 	 */
 	private static final String TAG = "ThankYou"; //TAG for Log purposes
 
+	private Button yesButton;
+	private Button noButton;
+	private EditText email;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -26,6 +31,11 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 		setContentView(R.layout.activity_thankyou);
 		super.onCreate(savedInstanceState);
 		
+		yesButton = (Button) this.findViewById(R.id.YesButton);
+		yesButton.setOnClickListener(this);
+		noButton = (Button) this.findViewById(R.id.NoButton);
+		noButton.setOnClickListener(this);
+		email = (EditText) this.findViewById(R.id.Email);
 	}
 
 		
@@ -62,7 +72,35 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 
 	
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(View view) {
+		int id = view.getId();
+		
+		/**
+		 * When click on view.ID, perform ___
+		 */
+		switch(id){
+			case R.id.YesButton:
+				yes();
+				break;
+			case R.id.NoButton:
+				no();
+				break;
+		}
+	}
+
+	/**
+	 * User Doesn't like SmartCart
+	 */
+	private void no() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * User Likes smartcart
+	 */
+	private void yes() {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -9,6 +9,50 @@
         android:layout_height="fill_parent"
         android:background="@drawable/black"
         android:scaleType="fitXY"
-        android:src="@drawable/thankyou" />
+        android:src="@drawable/thankyou" 
+        android:id="@+id/ThankYouImage"/>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/NoButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/YesButton"
+        android:layout_alignBottom="@+id/YesButton"
+        android:layout_marginLeft="350dp"
+        android:layout_toRightOf="@+id/YesButton"
+        android:text="@string/no_button"
+        android:textSize="30sp" 
+        android:textColor="@drawable/theme_red"
+        android:textStyle="bold"/>
+
+     <Button
+        android:id="@+id/YesButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Email"
+        android:layout_marginLeft="315dp"
+        android:layout_marginTop="106dp"
+        android:text="@string/yes_button"
+        android:textColor="@drawable/theme_green"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="@string/email_hint"
+        android:inputType="textWebEmailAddress"
+        android:textColor="@drawable/theme_purple"
+        android:textSize="30sp"
+        android:textStyle="bold" >
+
+        <requestFocus />
+    </EditText>
+     
+</RelativeLayout>
