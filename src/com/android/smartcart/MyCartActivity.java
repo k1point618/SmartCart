@@ -187,7 +187,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 //		}
 		
 		
-//		//TODO: DEBUG DATABASE View
+		//TODO: DEBUG DATABASE View
 //		TextView text = new TextView(this);
 //		text.setText(this.getDatabase(this.mDbHelper.getWritableDatabase()));
 //		mItemizedVerticalLayout.addView(text);

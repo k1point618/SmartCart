@@ -1,3 +1,15 @@
+041331124669	GOYA Black Beans	1.49	1.39	100	Canned Food Beans Black 
+059290311853	McVities Digestives	5.99	5.99	200	Cookies Chocolate Food
+08660533	Solid White Albacore 	1.99	1.45	520	Canned Food Fish Tuna
+076808280081	Barilla Spaghetti	3.99	3.99	400	Pasta Italian Food
+012546675215	Trident Strawberry Twist	1.20	1.20	010	Gum Food
+4902778994290	Boxy Eraser	5.30	4.30	603	School Supply Office Eraser 
+031901907983	Staedtler Mars Plastic	6.00	6.00	603	School Supply Office Eraser
+4007817527146	Steadtler Rasoplast	6.00	5.49	603	School Supply Office Eraser
+051000148728	Campbell Tomato Soup	2.99	2.99	103	Food Canned Soup
+794522215416	Tazo Joy Tea	8.49	7.99	700	Tea
+762111600844	Starbucks Anniversary Blend	10.45	8.99	710	Coffee Blend Grounded
+762111922199	Starbucks Venti Mug	30.00	30.00	720	Coffee Mug Cup
 6954767410388	Chinese Coke	2.50	2.50	001	Coca cola Soda
 037466080259	Lint Chocolate 35Box	5.99	5.99	101	Chocolate Lindt Dark Swiss
 12345678	Chocolate	15.99	15.99	201	Chocolate Lindt Dark Swiss

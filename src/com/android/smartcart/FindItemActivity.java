@@ -172,6 +172,7 @@ public class FindItemActivity extends SmartCartActivity implements View.OnClickL
 			});
 			
 			LayoutParams imageParams = new LayoutParams(120, 120);
+			imageParams.setMargins(3, 3, 3, 3);
 			imageButton.setLayoutParams(imageParams);
 			rec.addView(imageButton);
 			

@@ -39,6 +39,8 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
     //Database
     protected static InventoryDbHelper mDbHelper;
     
+    public static String USER_EMAIL = "";
+    
     //Constants
     private static final int ADD_ITEM_DIALOG = 1;					//Dialog
 	private static final int NEW_ITEM_DIALOG = 2;					//Dialog
@@ -51,6 +53,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	public final static int ITEMIZED_FONT_SIZE = 30;
 	public final static int ITEMIZED_SUB_FONT_SIZE = 20;
 	public static final String TUTORIAL_IMAGE = "tutorial";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -186,10 +189,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 * @param mVerticalLayout
 	 */
 	protected void loadItemsToVerticalLayout(ArrayList<Item> items, LinearLayout mVerticalLayout, int layoutID){
-		
-		/**
-		 * TODO: This removes Find items from previous find... need fix
-		 */
+	
 		mVerticalLayout.removeAllViews();
 		
 		for(Item item: items){
@@ -219,10 +219,12 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 			});
 			
 			LayoutParams imageParams = new LayoutParams(120, 120);
+			imageParams.setMargins(3, 3, 3, 3);
 			imageButton.setLayoutParams(imageParams);
 			rec.addView(imageButton);
 			
 			TextView label = new TextView(this);
+			label.setTextSize(20);
 			label.setText(item.getName() + "\n$" + item.getSalePriceText());
 			//If layout is Find's Vertical Result Layout, then Show Location:
 			if(layoutID == FIND_RESULT_VERTICAL_LAYOUT){

@@ -7,11 +7,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.database.InventoryDbHelper;
 import com.android.database.InventoryReaderContract;
@@ -90,7 +93,21 @@ public class AddItemActivity extends SmartCartActivity{
 									//Nothing?
 									finish();
 								}
-							});
+							})
+					.setOnKeyListener(new DialogInterface.OnKeyListener() {
+						
+						@Override
+						public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+							
+							// If the event is a Key-down event on the Enter Button
+					    	if(keyCode == KeyEvent.KEYCODE_ENTER){
+					    		dialog.dismiss();
+					    		addNewItemFromBarcode();
+								return true;
+							}
+				            return false;
+						}
+					});
 				mAddItemDialog = builder.create();
 				mAddItemDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 				

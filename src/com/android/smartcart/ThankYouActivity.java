@@ -27,6 +27,9 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 		//1. Add debug message to log file
 		Log.i(TAG, "onCreate() ... savedIstanceState = " + savedInstanceState);
 		
+		//1.5
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);	//Override Default Android Transition
+		
 		//2. Set Content before calling Super. Because super gets the variable
 		setContentView(R.layout.activity_thankyou);
 		super.onCreate(savedInstanceState);
@@ -92,16 +95,18 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 	 * User Doesn't like SmartCart
 	 */
 	private void no() {
-		// TODO Auto-generated method stub
-		
+		SmartCartActivity.USER_EMAIL = email.getText().toString();
+		Intent intent = new Intent(this, ByeActivity.class);
+		startActivity(intent);
 	}
 
 	/**
 	 * User Likes smartcart
 	 */
 	private void yes() {
-		// TODO Auto-generated method stub
-		
+		SmartCartActivity.USER_EMAIL = email.getText().toString();
+		Intent intent = new Intent(this, ByeActivity.class);
+		startActivity(intent);
 	}
 
 }

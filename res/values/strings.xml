@@ -43,7 +43,7 @@
 	
     <!-- Add Item Dialog -->
 	<string name="add_item_dialog_barcode_label">Barcode: </string>
-	<string name="barcode_hint">12-digit Barcode</string>
+	<string name="barcode_hint">Scan Item\'s Barcode</string>
 	<string name="add_item_dialog_add">Add</string>
 	<string name="add_item_dialog_cancel">Cancel</string>
 	
