@@ -3,6 +3,7 @@ package com.android.smartcart;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -10,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -191,8 +193,19 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	protected void loadItemsToVerticalLayout(ArrayList<Item> items, LinearLayout mVerticalLayout, int layoutID){
 	
 		mVerticalLayout.removeAllViews();
+		int counter = 0;
+		int IMAGE_SIZE = 100;
 		
 		for(Item item: items){
+			
+			//Limit the number of items revealved for Recommendation. 
+			counter ++;	
+			if (layoutID == RECOMMENDATION_VERTICAL_LAYOUT){
+				if (counter > 10){
+					break;
+				}
+			}
+			
 			LinearLayout rec = new LinearLayout(this); 	// rec: a single horizontal rectangle
 			rec.setOrientation(LinearLayout.HORIZONTAL);
 			
@@ -208,7 +221,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				imageResourceId = this.getResources().getIdentifier(DEFAULT_IMAGE, "drawable", getPackageName());
 				image = this.getResources().getDrawable(imageResourceId);
 			}
-			image = resize(image, 129, 120);
+			image = resize(image, IMAGE_SIZE, IMAGE_SIZE);
 			imageButton.setImageDrawable(image);
 			imageButton.setContentDescription(item.getName());
 			imageButton.setOnClickListener(new OnClickListener(){
@@ -218,8 +231,8 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				}
 			});
 			
-			LayoutParams imageParams = new LayoutParams(120, 120);
-			imageParams.setMargins(3, 3, 3, 3);
+			LayoutParams imageParams = new LayoutParams(IMAGE_SIZE, IMAGE_SIZE);
+			imageParams.setMargins(0, 3, 3, 3);
 			imageButton.setLayoutParams(imageParams);
 			rec.addView(imageButton);
 			
@@ -234,15 +247,40 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 						"\nLocated at Shelf Number: " + item.getLocation());
 			}
 			else if(layoutID == COUPON_VERTICAL_LAYOUT){
-				label.setTextSize(20);
 				label.setText(item.getName() + "\nUsed to be: $" + item.getOriginalPriceText() + 
 						"\nNOW: $" + item.getSalePriceText());
 			}
+			
 			
 			LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 1);
 			params.setMargins(5, 5, 5, 5);
 			label.setLayoutParams(params);
 			rec.addView(label);
+			
+			//4. Add Thumbs Down Button
+			if(layoutID == RECOMMENDATION_VERTICAL_LAYOUT){
+				ImageButton removeButton = new ImageButton(this);
+				String deleteFileName = "dislike";
+				int deleteResourceid=0;
+				Drawable deleteDrawable;
+				deleteResourceid = this.getResources().getIdentifier(deleteFileName, "drawable", this.getPackageName());
+				deleteDrawable = this.getResources().getDrawable(deleteResourceid);
+				removeButton.setImageDrawable(deleteDrawable);
+				removeButton.setContentDescription(item.getBarcode());
+				final SmartCartActivity smartCart = this;
+				removeButton.setOnClickListener(new OnClickListener(){
+					@Override 
+					public void onClick(View view){
+						smartCart.removeRecommendation(view.getContentDescription().toString());
+					}
+				});
+				LayoutParams deleteParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
+				deleteParams.gravity = Gravity.CENTER_VERTICAL;
+				removeButton.setLayoutParams(deleteParams);
+				removeButton.setBackgroundResource(R.drawable.recommendation_background_color);
+				rec.addView(removeButton);
+			}
+			
 			mVerticalLayout.addView(rec);
 		}
 	}
@@ -272,6 +310,17 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 */
 	public void removeItem(String barcode) {
 		SmartCartActivity.model.deleteItem(barcode);
+		Intent intent = new Intent(this, MyCartActivity.class);
+		startActivity(intent);
+		
+	}
+	
+	/**
+	 * Remove item from list and then refresh;
+	 * @param barcode
+	 */
+	public void removeRecommendation(String barcode) {
+		SmartCartActivity.model.deleteRecommendation(barcode);
 		Intent intent = new Intent(this, MyCartActivity.class);
 		startActivity(intent);
 		

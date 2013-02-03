@@ -39,6 +39,9 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
     //Recommendations
     private LinearLayout mRecommendationVerticalLayout;
 	private ScrollView mRecommendationScrollView;
+	
+	//Constants
+	private static boolean FIRST_TIME = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 		mRecommendationScrollView = (ScrollView) findViewById(R.id.recommendationScrollview);
 				
 		getRecommendations(null);
+		MyCartActivity.FIRST_TIME = false;
 		
 		setItemizeView();
 		
@@ -71,7 +75,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 
 	public static void getRecommendations(Item item) {
 		
-		if(SmartCartActivity.model.getRecommendations().size() == 0){
+		if(SmartCartActivity.model.getRecommendations().size() == 0 && MyCartActivity.FIRST_TIME){
 			SQLiteDatabase db = SmartCartActivity.mDbHelper.getWritableDatabase();
 			Cursor c = db.rawQuery("select * from inventory", null);
 			c.moveToFirst();

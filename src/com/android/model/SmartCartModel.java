@@ -111,5 +111,19 @@ public class SmartCartModel {
 		}
 		items.remove(toDelete);
 	}
-	
+
+	/**
+	 * Delete the item with the input barcode. 
+	 * @param barcode
+	 */
+	public void deleteRecommendation(String barcode){
+		Item toDelete = null;
+		for(Item i: recommendations){
+			if(barcode.equals(i.getBarcode())){
+				toDelete = i;
+			}
+		}
+		recommendations.remove(toDelete);
+	}
+
 }
