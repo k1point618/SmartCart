@@ -205,6 +205,15 @@
                 android:contentDescription="@string/map_main"
                 android:src="@drawable/here" />
              -->
+
+             <ImageView
+                 android:id="@+id/myLocation"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignLeft="@+id/findMap"
+                 android:layout_marginLeft="106dp"
+                 android:layout_marginTop="184dp"
+                 android:src="@drawable/my_location" />
              
         </RelativeLayout>
         
