@@ -73,7 +73,7 @@
 	<string name="map_main">Store Map</string>
 	
 	<!-- Colors and Such -->		
-    <drawable name="red">#7f00</drawable>
+    <drawable name="red">#FF0000</drawable>
     <drawable name="blue">#770000ff</drawable>
     <drawable name="green">#7700ff00</drawable>
 	<drawable name="yellow">#77ffff00</drawable>
@@ -105,4 +105,5 @@
 	<drawable name="theme_red">#6D5BB3</drawable>
 	<drawable name="theme_green">#6D5BB3</drawable>
 
+	<color name="Discount">#FF0000</color>
 </resources>

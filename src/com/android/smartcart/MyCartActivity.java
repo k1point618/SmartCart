@@ -41,7 +41,7 @@ public class MyCartActivity extends SmartCartActivity implements View.OnClickLis
 	private ScrollView mRecommendationScrollView;
 	
 	//Constants
-	private static boolean FIRST_TIME = true;
+	protected static boolean FIRST_TIME = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

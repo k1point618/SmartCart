@@ -96,6 +96,7 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 	 */
 	private void no() {
 		SmartCartActivity.USER_EMAIL = email.getText().toString();
+		SmartCartActivity.feedback.add(SmartCartActivity.USER_EMAIL + "\t" + "NO");
 		Intent intent = new Intent(this, ByeActivity.class);
 		startActivity(intent);
 	}
@@ -105,6 +106,7 @@ public class ThankYouActivity extends Activity implements View.OnClickListener{
 	 */
 	private void yes() {
 		SmartCartActivity.USER_EMAIL = email.getText().toString();
+		SmartCartActivity.feedback.add(SmartCartActivity.USER_EMAIL + "\t" + "YES");
 		Intent intent = new Intent(this, ByeActivity.class);
 		startActivity(intent);
 	}

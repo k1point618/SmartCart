@@ -27,5 +27,24 @@
 
         <requestFocus />
     </TextView>
-     
+
+    <Button
+        android:id="@+id/feedback"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Feedback(Debug)" />
+
+    <TextView
+        android:id="@+id/feedbackTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ByeEmail"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/feedback"
+        android:ems="10"
+		/>     
 </RelativeLayout>

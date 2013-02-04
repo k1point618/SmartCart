@@ -20,7 +20,9 @@ public class SmartCartModel {
 	 * @param item
 	 */
 	public void addRecommendation(Item item){
-		this.recommendations.add(item);
+		if(!this.recommendations.contains(item)){
+			this.recommendations.add(item);
+		}
 	}
 	
 	/**

@@ -56,6 +56,8 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	public final static int ITEMIZED_SUB_FONT_SIZE = 20;
 	public static final String TUTORIAL_IMAGE = "tutorial";
 	
+	public static ArrayList<String> feedback = new ArrayList<String>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -167,6 +169,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 */
 	private void restart() {
 		SmartCartActivity.model = null;
+		MyCartActivity.FIRST_TIME = true;
 		Intent intent = new Intent(this, WelcomeActivity.class);
 		startActivity(intent);
 		return;
@@ -177,7 +180,6 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 	 * EndSession will clear existing data in the model, and return to Welcome Window
 	 */
 	private void endSession() {
-		SmartCartActivity.model = null;
 		Intent intent = new Intent(this, ThankYouActivity.class);
 		startActivity(intent);
 		return;
@@ -236,6 +238,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 			imageButton.setLayoutParams(imageParams);
 			rec.addView(imageButton);
 			
+			// ADD LABEL to the itemized List.
 			TextView label = new TextView(this);
 			label.setTextSize(20);
 			label.setText(item.getName() + "\n$" + item.getSalePriceText());
@@ -250,9 +253,7 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				label.setText(item.getName() + "\nUsed to be: $" + item.getOriginalPriceText() + 
 						"\nNOW: $" + item.getSalePriceText());
 			}
-			
-			
-			LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 1);
+			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1);
 			params.setMargins(5, 5, 5, 5);
 			label.setLayoutParams(params);
 			rec.addView(label);
@@ -267,11 +268,10 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				deleteDrawable = this.getResources().getDrawable(deleteResourceid);
 				removeButton.setImageDrawable(deleteDrawable);
 				removeButton.setContentDescription(item.getBarcode());
-				final SmartCartActivity smartCart = this;
 				removeButton.setOnClickListener(new OnClickListener(){
 					@Override 
 					public void onClick(View view){
-						smartCart.removeRecommendation(view.getContentDescription().toString());
+						removeRecommendation(view.getContentDescription().toString());
 					}
 				});
 				LayoutParams deleteParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
@@ -281,10 +281,58 @@ public class SmartCartActivity extends Activity implements View.OnClickListener{
 				rec.addView(removeButton);
 			}
 			
+			// Add Discount and UP Button for Coupons
+			if(layoutID == COUPON_VERTICAL_LAYOUT){
+				
+				//ADD DISCOUNT %OFF in RED
+				TextView discountLabel = new TextView(this);
+				double discount = 1-item.getSalePrice()/item.getOriginalPrice();
+				discount = round(discount*100, 2);
+				discountLabel.setText(discount + "% OFF");
+				discountLabel.setTextAppearance(getApplicationContext(), R.style.boldText);
+				discountLabel.setTextSize(30);
+				discountLabel.setTextColor(getResources().getColor(R.color.Discount));
+				
+				LayoutParams discountParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1);
+				discountParams.setMargins(5, 5, 5, 5);
+				discountParams.gravity = Gravity.CENTER_VERTICAL;
+				discountLabel.setLayoutParams(discountParams);
+				rec.addView(discountLabel);
+				
+				//Search Button ---? Find.
+				ImageButton findButton = new ImageButton(this);
+				String deleteFileName = "find";
+				int deleteResourceid=0;
+				Drawable deleteDrawable;
+				deleteResourceid = this.getResources().getIdentifier(deleteFileName, "drawable", this.getPackageName());
+				deleteDrawable = this.getResources().getDrawable(deleteResourceid);
+				findButton.setImageDrawable(deleteDrawable);
+				findButton.setContentDescription(item.getName());	//Find using the Item's Name
+				findButton.setOnClickListener(new OnClickListener(){
+					@Override 
+					public void onClick(View view){
+						startFindItemActivity(view.getContentDescription().toString());
+					}
+				});
+				LayoutParams deleteParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
+				deleteParams.gravity = Gravity.CENTER_VERTICAL;
+				findButton.setLayoutParams(deleteParams);
+				findButton.setBackgroundResource(R.drawable.recommendation_background_color);
+				rec.addView(findButton);
+			}
+			
 			mVerticalLayout.addView(rec);
 		}
 	}
 	
+	private double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
+	}
 	/**
 	 * Resizes Drwable
 	 * @param image

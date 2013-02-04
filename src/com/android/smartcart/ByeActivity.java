@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ByeActivity extends Activity implements View.OnClickListener{
@@ -18,6 +18,8 @@ public class ByeActivity extends Activity implements View.OnClickListener{
 	private static final String TAG = "ThankYou"; //TAG for Log purposes
 
 	private TextView email;
+	private Button feedback;
+	private TextView feedbackTextView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,10 @@ public class ByeActivity extends Activity implements View.OnClickListener{
 		email = (TextView) this.findViewById(R.id.ByeEmail);
 		email.setText(SmartCartActivity.USER_EMAIL + " .");
 		
+		feedback = (Button) this.findViewById(R.id.feedback);
+		feedback.setOnClickListener(this);
+		
+		feedbackTextView = (TextView) this.findViewById(R.id.feedbackTextView);
 	}
 
 		
@@ -72,8 +78,25 @@ public class ByeActivity extends Activity implements View.OnClickListener{
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		
+		int id = arg0.getId();
+		/**
+		 * When click on view.ID, perform ___
+		 */
+		switch(id){
+			case R.id.feedback:
+				showFeedback();
+				break;
+		}
 	}
 
+	//Show Feadback
+	private void showFeedback(){
+		String feedbackString = "";
+		for(String line: SmartCartActivity.feedback){
+			feedbackString += line + "\t\t";
+		}
+		feedbackTextView.setText(feedbackString);
+		feedbackTextView.setSelectAllOnFocus(true);
+	}
 
 }
